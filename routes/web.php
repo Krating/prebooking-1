@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::group(['middleware' => ['auth', 'admin']], function(){
+	Route::get('home', 'Admin\AdminController@home');
+});
+
+Route::group(['middleware' => ['auth']], function(){
+	Route::get('index', 'Customer\CustomerController@index');
+});
