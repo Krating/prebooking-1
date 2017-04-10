@@ -29,7 +29,6 @@ class AdminController extends Controller
 	{
 		$role = 11;
 		$customers = User::where('role_id', $role)->get();
-		// dd($customers);
 		return view('admin.customer', ['customers' => $customers]);
 	}
 
