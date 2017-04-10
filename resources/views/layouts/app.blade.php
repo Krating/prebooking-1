@@ -53,6 +53,9 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            @if (Auth::user()->role_id === 1)
+                            <li><a href="{{ route('admin.user-management') }}">User Management</a></li>
+                            @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->username }} <span class="caret"></span>
@@ -60,6 +63,9 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        @if(Auth::user()->role_id === 1)
+                                        <a href="{{ route('admin.changepassword') }}">Change Password</a>
+                                        @endif
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
