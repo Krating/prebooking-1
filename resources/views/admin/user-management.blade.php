@@ -30,6 +30,7 @@
 				</div>
 
 				<a class="btn btn-success" href="{{ route('admin.create') }}">New</a>
+				<a class="btn btn-info" href="{{ route('admin.blacklists') }}">Blacklist</a>
 
 				<table class="table table-striped table-responsive">
 					<thead>
@@ -44,7 +45,11 @@
 							<td>{{ ++$key }}</td>
 							<td>{{ $admin->first_name }}</td>
 							<td>{{ $admin->last_name }}</td>
-							<td></td>
+							<td>
+								{!! Form::open(['method'=>'DELETE', 'route'=>['admin.destroy',$admin->id]]) !!}
+								{!! Form::submit('Block', ['class' => 'btn btn-danger']) !!}
+								{!! Form::close() !!}
+							</td>
 						</tr>
 						@endforeach
 					</tbody>
