@@ -76,4 +76,27 @@ class AdminController extends Controller
         $admin->save();
         return redirect()->route('admin.user-management');
 	}
+
+	public function destroy($id)
+	{
+		$user = User::withTrashed()->find($id);
+		$trashed = $user->trashed();
+		$msg = $user->first_name.' has been unblocked';
+		// dd($user);
+		if ($trashed) {
+			$user->restore();
+
+		}else{
+			$user->delete();	
+			$msg = $user->first_name.' has been blocked';
+		}
+        return redirect()->route('admin.user-management', ['trashed' => $trashed])->with('status', $msg);
+	}
+
+	public function blacklists()
+	{
+		$role = Auth::user()->role_id;
+		$admins = User::onlyTrashed()->where('role_id', $role)->get();
+		return view('admin.blacklists', ['admins' => $admins]);
+	}
 }

@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 	Route::resource('admin', 'Admin\AdminController');
 	Route::get('user-management', 'Admin\AdminController@userManagement')->name('admin.user-management');
 	Route::get('customer', 'Admin\AdminController@customer')->name('admin.customer');
+	Route::get('blacklists', 'Admin\AdminController@blacklists')->name('admin.blacklists');
 });
 
 Route::group(['middleware' => ['auth']], function(){
