@@ -21,8 +21,6 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 	Route::get('home', 'Admin\AdminController@home');
 	Route::resource('admin', 'Admin\AdminController');
 	Route::get('user-management', 'Admin\AdminController@userManagement')->name('admin.user-management');
-	Route::get('changepassword', 'Admin\AdminController@changepassword')->name('admin.changepassword');
-	Route::post('change', 'Admin\AdminController@change')->name('admin.change');
 	Route::get('customer', 'Admin\AdminController@customer')->name('admin.customer');
 });
 
