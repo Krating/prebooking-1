@@ -64,7 +64,10 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         @if(Auth::user()->role_id === 1)
-                                        <a href="{{ route('admin.changepassword') }}">Change Password</a>
+                                            @php
+                                                $admin = Auth::user();
+                                            @endphp
+                                        <a href="{{ route('admin.edit', $admin->id) }}">Change Password</a>
                                         @endif
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

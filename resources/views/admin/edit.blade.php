@@ -16,15 +16,17 @@
 					</div>
 					
 					<div class="panel-body">
-                    @if (session('status'))
+                        @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
-                    @endif
+                        @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="#">
-                        {{ csrf_field() }}
+                        @php
+                        $admin = Auth::user();
+                        @endphp
 
+                        {!! Form::model($admin, ['class'=>'form-horizontal', 'route' => ['admin.update', $admin->id], 'method'=>'PATCH']) !!}
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -41,6 +43,7 @@
 
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 
@@ -51,7 +54,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -59,13 +61,13 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                        {!! Form::close() !!}
+                        
+                    </div>
                 </div>
-
-				</div>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 @endsection

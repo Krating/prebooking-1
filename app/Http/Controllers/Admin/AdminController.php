@@ -6,13 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class AdminController extends Controller
 {
-	use RegistersUsers;
-
 	public function home()
 	{
 		return view('admin.home');
@@ -64,21 +60,20 @@ class AdminController extends Controller
 	    return redirect()->route('admin.user-management')->with('status', 'Create User is Successful!');
 	}
 
-	public function changepassword()
+	public function edit($id)
 	{
-		return view('admin.changepassword');
+		return view('admin.edit');
 	}
 
-	public function change(Request $request)
+	public function update(Request $request, $id)
 	{
 		$this->validate($request, [
-            'password' => 'required',
+            'password' => 'required|min:6|confirmed',
         ]);
 
 		$admin = Auth::user();
-		$admin->password = bcrypt('password');
-		// dd($admin);
-		$admin->save();
+        $admin->password = bcrypt($request->password);
+        $admin->save();
         return redirect()->route('admin.user-management');
 	}
 }
