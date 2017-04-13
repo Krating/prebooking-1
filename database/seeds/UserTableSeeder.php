@@ -13,34 +13,6 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-
-        // $role_customer = Role::where('name', 'Customer')->first();
-        // $role_admin = Role::where('name', 'Admin')->first();
-
-        // $customer = new User();
-        // $customer->username = 'Customer';
-        // $customer->first_name = 'customer01';
-        // $customer->last_name = 'test';
-        // $customer->gender = 'Female';
-        // $customer->birthday = '1993-02-02';
-        // $customer->password = bcrypt('123123');
-        // $customer->email = 'customer@example.com';
-        // $customer->address = 'cnx';
-        // $customer->save();
-        // $customer->roles()->attach($role_customer);
-
-        // $admin = new User();
-        // $admin->username = 'Admin';
-        // $admin->first_name = 'admin01';
-        // $admin->last_name = 'test';
-        // $admin->gender = 'Male';
-        // $admin->birthday = '1993-01-01';
-        // $admin->password = bcrypt('123123');
-        // $admin->email = 'admin@example.com';
-        // $admin->address = 'cnx';
-        // $admin->save();
-        // $admin->roles()->attach($role_admin);
-
          DB::table('users')->insert($this->getUsers());
     }
 
