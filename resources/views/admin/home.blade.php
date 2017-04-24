@@ -1,4 +1,6 @@
 @extends('layouts.app')
 @section('content')
-admin
+
+	<a class="btn btn-info" href="{{ route('product.index') }}">Product Management</a>
+
 @endsection

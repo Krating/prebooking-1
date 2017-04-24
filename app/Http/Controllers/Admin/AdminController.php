@@ -82,7 +82,6 @@ class AdminController extends Controller
 		$user = User::withTrashed()->find($id);
 		$trashed = $user->trashed();
 		$msg = $user->first_name.' has been unblocked';
-		// dd($user);
 		if ($trashed) {
 			$user->restore();
 
