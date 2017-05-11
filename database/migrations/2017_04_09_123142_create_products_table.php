@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->double('product_price');
             $table->integer('product_number');
             $table->string('description');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -24,9 +24,11 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 	Route::get('customer', 'Admin\AdminController@customer')->name('admin.customer');
 	Route::get('blacklists', 'Admin\AdminController@blacklists')->name('admin.blacklists');
 	Route::resource('product', 'Admin\Product\ProductController');
+	Route::get('openbooking/{id}', 'Admin\Product\ProductController@openbooking')->name('product.openbooking');
+	Route::get('closebooking/{id}', 'Admin\Product\ProductController@closebooking')->name('product.closebooking');
 	Route::resource('category', 'Admin\Product\CategoryController');
 });
 
 Route::group(['middleware' => ['auth']], function(){
-	Route::get('index', 'Customer\CustomerController@index');
+	Route::resource('index', 'Customer\Product\ProductController');
 });
