@@ -20,11 +20,12 @@ class CreateBookingsTable extends Migration
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->integer('number');
-            $table->string('address');
-            $table->string('status');
             $table->string('total_price');
             $table->string('deposit');
             $table->string('debt');
+            $table->date('payment_date');
+            $table->date('transmission_date');
+            $table->string('status');
             $table->timestamps();
         });
     }

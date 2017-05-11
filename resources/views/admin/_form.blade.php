@@ -99,7 +99,7 @@
 
 <div class="row">
 	<div class="col-md-1 col-md-offset-7">
-	<a href="{{ route('admin.user-management') }}" class="btn btn-primary">Back</a>
+	<a href="{{ route('user-management.admin') }}" class="btn btn-primary">Back</a>
 	</div>
 	<div class="col-md-2 col-md-offset-0">
 		{!! Form::button($submitButtonText, ['class' => 'btn-success form-control','type' => 'submit']) !!}

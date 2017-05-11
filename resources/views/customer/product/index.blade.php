@@ -38,7 +38,7 @@
 								<td>{{ $product->product_price }}</td>
 								<td>{{ $product->product_number }}</td>
 								<td>
-									<a class="btn btn-info" href="{{ route('index.show',$product->id) }}">Show</a>
+									<a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
 								</td>
 							</tr>
 							@endforeach

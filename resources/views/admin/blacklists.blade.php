@@ -20,7 +20,7 @@
                 </div>
                 @endif
 
-                <a class="btn btn-info" href="{{ route('admin.user-management') }}">Admins</a>
+                <a class="btn btn-info" href="{{ route('user-management.admin') }}">Admins</a>
 
                 <table class="table table-striped table-responsive">
                     <thead>
