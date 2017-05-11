@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer\Product;
 
 use Illuminate\Http\Request;
-use Auth;
-use App\User;
+use App\Http\Controllers\Controller;
 use App\Product;
-use App\Booking;
+use App\Category;
 
-class BookingController extends Controller
+class ProductController extends Controller
 {
 
     public function index()
     {
-        //
+        $status = "open";
+        $products = Product::where('status', $status)->get();
+        return view('customer.product.index', ['products' => $products]);
     }
 
 
@@ -31,10 +32,11 @@ class BookingController extends Controller
 
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return view('customer.product.show', ['product' => $product]);
     }
 
-
+ 
     public function edit($id)
     {
         //

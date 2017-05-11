@@ -12,7 +12,7 @@ class ProductController extends Controller
     
     public function index()
     {
-        $products = Product::with('category')->get();
+        $products = Product::get();
         return view('admin.product.index', ['products' => $products]);
     }
 
@@ -32,7 +32,11 @@ class ProductController extends Controller
             'product_price' => 'required|numeric',
             'product_number' => 'required|numeric',
         ]);
-        Product::create($request->all());
+
+        $product = new Product($request->all());
+        $status = "close";
+        $product['status'] = $status;
+        $product->save();
         return redirect()->route('product.index')->with('status', 'Create Product is Successful!');
     }
 
@@ -40,7 +44,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('products.show', ['product' => $product]);
+        return view('admin.product.show', ['product' => $product]);
     }
 
     
@@ -72,5 +76,23 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
         return redirect()->route('product.index')->with('status', $product->product_name.' has been deleted');
+    }
+
+    public function openbooking($id)
+    {
+        $product = Product::find($id);
+        $status_new = "open";
+        $product['status'] = $status_new;
+        $product->save();
+        return redirect()->route('product.index')->with('status', $product->product_name.' has been opened');
+    }
+
+    public function closebooking($id)
+    {
+        $product = Product::find($id);
+        $status_new = "close";
+        $product['status'] = $status_new;
+        $product->save();
+        return redirect()->route('product.index')->with('status', $product->product_name.' has been closed');
     }
 }
