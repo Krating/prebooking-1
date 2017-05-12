@@ -28,6 +28,12 @@ class AdminController extends Controller
 		return view('admin.user-management.customer', ['customers' => $customers]);
 	}
 
+	public function show($id)
+	{
+		$user = User::find($id);
+		return view('admin.user-management.show', ['user' => $user]);
+	}
+
 	public function create()
 	{
 		return view('admin.create');

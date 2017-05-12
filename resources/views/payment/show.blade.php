@@ -17,58 +17,61 @@
                         <h2>Information</h2>
                     </div>
                     <div class="panel-body">
-                        
+
                         <div class="form-group">
                             <strong>Name:</strong>
-                            {{ $booking->user->first_name }} &nbsp {{ $booking->user->last_name }} 
+                            {{ $payment->booking->user->first_name }} &nbsp {{ $payment->booking->user->last_name }}
                         </div>
                         <div class="form-group">
                             <strong>Product Name:</strong>
-                            {{ $booking->product->product_name }}
+                            {{ $payment->booking->product->product_name }}
                         </div>
                         <div class="form-group">
-                            <strong>Price:</strong>
-                            {{ $booking->product->product_price }} THB.
+                            <strong>Product Price:</strong>
+                            {{ $payment->booking->product->product_price }} THB.
                         </div>
                         <div class="form-group">
                             <strong>Number:</strong>
-                            {{ $booking->number }}
+                            {{ $payment->booking->number }}
                         </div>
                         <div class="form-group">
                             <strong>Total Price:</strong>
-                            {{ $booking->total_price }} THB.
+                            {{ $payment->booking->total_price }} THB.
                         </div>
                         <div class="form-group">
-                            <strong>Deposit:</strong>
-                            {{ $booking->deposit }} THB.
+                            <strong>Total Deposit:</strong>
+                            {{ $payment->booking->deposit }} THB.
                         </div>
                         <div class="form-group">
                             <strong>Debts:</strong>
-                            {{ $booking->debt }} THB.
+                            {{ $payment->booking->debt }} THB.
                         </div>
                         <div class="form-group">
-                            <strong>Payment Date:</strong>
-                            {{ $booking->payment_date }}
+                            <strong>Deposit:</strong>
+                            {{ $payment->amount }} THB.
                         </div>
                         <div class="form-group">
-                            <strong>Transmission Date:</strong>
-                            {{ $booking->transmission_date }}
+                            <strong>Date:</strong>
+                            {{ $payment->date }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Time:</strong>
+                            {{ $payment->time }}
                         </div>
                         <div class="form-group">
                             <strong>Address:</strong>
-                            {{ $booking->user->address }}
+                            {{ $payment->booking->address }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Slip:</strong><br>
+                            <img src="/slips/{{ $payment->slip }}">
                         </div>
 
                         <div class="pull-right">
-                            @if(Auth::user()->role_id === 1)
-                                <a class="btn btn-primary" href="{{ route('booking.index') }}">Back</a>
-                            @else
-                                <a class="btn btn-primary" href="{{ route('customer.myorder') }}">Back</a>
-                                @if($booking->status == 'Fully Paid')
-                                @else
-                                    <a class="btn btn-success" href="{{ route('customer.payment.create', $booking->id) }}" >Payment</a>
+                            <a class="btn btn-primary" href="{{ route('payment.index') }}">Back</a>
+                                @if($payment->status != "Approved")
+                                    <a class="btn btn-success" href=" {{ route('payment.approve', [$payment->id, $payment->booking]) }}">Approve</a>
                                 @endif
-                            @endif
                         </div>
                     </div>
                 </div>
