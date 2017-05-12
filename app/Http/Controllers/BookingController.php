@@ -13,7 +13,8 @@ class BookingController extends Controller
 
     public function index()
     {
-        //
+        $bookings = Booking::get();
+        return view('booking.index', ['bookings' => $bookings]);
     }
 
 

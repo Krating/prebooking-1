@@ -36,7 +36,9 @@
 							<td>{{ ++$key }}</td>
 							<td>{{ $customer->first_name }}</td>
 							<td>{{ $customer->last_name }}</td>
-							<td></td>
+							<td>
+								<a class="btn btn-info" href="{{ route('admin.show',$customer->id) }}">Show</a>
+							</td>
 						</tr>
 						@endforeach
 					</tbody>
