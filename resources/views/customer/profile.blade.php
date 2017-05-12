@@ -47,6 +47,7 @@
 
                         <div class="pull-right">
                             <a class="btn btn-primary" href="{{ route('products.index') }}">Back</a>
+                            <a class="btn btn-info" href="{{ route('customer.edit', $user->id)}}">Edit Profile</a>
                         </div>
                     </div>
                 </div>

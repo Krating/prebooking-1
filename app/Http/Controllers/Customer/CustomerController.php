@@ -52,13 +52,20 @@ class CustomerController extends Controller
  
     public function edit($id)
     {
-        //
+        $customer = Auth::user();
+        return view('customer.edit', ['customer' => $customer]);
     }
-
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $customer = Auth::user();
+        $customer->password = bcrypt($request->password);
+        $customer->save();
+        return redirect()->route('user-management.customer');
     }
 
 

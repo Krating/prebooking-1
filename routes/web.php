@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 	Route::resource('products', 'Customer\CustomerController');
 	Route::get('products', 'Customer\CustomerController@index')->name('products.index');
+	Route::get('customer/{id}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
 	Route::get('myorder', 'Customer\CustomerController@myorders')->name('customer.myorder');
 	Route::get('profile', 'Customer\CustomerController@profile')->name('customer.profile');
 
