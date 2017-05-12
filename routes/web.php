@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return Auth::check() ? Auth::user()->role_id == '1' ? view('admin.index') : redirect()->route('customer.index') : view('welcome'); 
+    return Auth::check() ? Auth::user()->role_id == '1' ? view('admin.index') : redirect()->route('products.index') : view('welcome'); 
 });
 
 Auth::routes();
@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 Route::group(['middleware' => ['auth']], function(){
 
 	Route::resource('products', 'Customer\CustomerController');
-	Route::get('products', 'Customer\CustomerController@index')->name('customer.index');
+	Route::get('products', 'Customer\CustomerController@index')->name('products.index');
 	Route::get('myorder', 'Customer\CustomerController@myorders')->name('customer.myorder');
 	Route::get('profile', 'Customer\CustomerController@profile')->name('customer.profile');
 
