@@ -9,7 +9,14 @@ class Product extends Model
     public $fillable = [
     	'category_id', 'product_name', 'product_price', 'product_number', 'description'
     	];
-    public function category(){
+
+    public function category()
+    {
 		return $this->belongsTo('App\Category');
+	}
+
+	public function bookings(){
+
+		return $this->hasMany('App\Booking');
 	}
 }

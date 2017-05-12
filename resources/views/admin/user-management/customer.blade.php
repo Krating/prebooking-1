@@ -14,23 +14,14 @@
 			</div>
 			<div class="panel-body">
 
-				@if (session('status'))
-				<div class="alert alert-success">
-					{{ session('status') }}
-				</div>
-				@endif
-
 				<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Admin <span class="caret"></span>
+						Customer <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu">
-						<li><a href="{{ route('admin.customer') }}">Customer</a></li>
+						<li><a href="{{ route('user-management.admin') }}">Admin</a></li>
 					</ul>
 				</div>
-
-				<a class="btn btn-success" href="{{ route('admin.create') }}">New</a>
-				<a class="btn btn-info" href="{{ route('admin.blacklists') }}">Blacklist</a>
 
 				<table class="table table-striped table-responsive">
 					<thead>
@@ -40,16 +31,12 @@
 						<th>Action</th>
 					</thead>
 					<tbody>
-						@foreach($admins as $key=> $admin)
+						@foreach($customers as $key=> $customer)
 						<tr>
 							<td>{{ ++$key }}</td>
-							<td>{{ $admin->first_name }}</td>
-							<td>{{ $admin->last_name }}</td>
-							<td>
-								{!! Form::open(['method'=>'DELETE', 'route'=>['admin.destroy',$admin->id]]) !!}
-								{!! Form::submit('Block', ['class' => 'btn btn-danger']) !!}
-								{!! Form::close() !!}
-							</td>
+							<td>{{ $customer->first_name }}</td>
+							<td>{{ $customer->last_name }}</td>
+							<td></td>
 						</tr>
 						@endforeach
 					</tbody>

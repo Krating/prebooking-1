@@ -54,7 +54,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             @if (Auth::user()->role_id === 1)
-                            <li><a href="{{ route('admin.user-management') }}">User Management</a></li>
+                            <li><a href="{{ route('user-management.admin') }}">User Management</a></li>
                             @endif
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -67,7 +67,10 @@
                                             @php
                                                 $admin = Auth::user();
                                             @endphp
-                                        <a href="{{ route('admin.edit', $admin->id) }}">Change Password</a>
+                                            <a href="{{ route('admin.edit', $admin->id) }}">Change Password</a>
+                                        @else
+                                            <a href="{{ route('customer.profile') }}">Profile</a>
+                                            <a href="{{ route('customer.myorder') }}">My Orders</a>
                                         @endif
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
