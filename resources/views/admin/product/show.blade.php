@@ -34,6 +34,14 @@
                             {{ $product->product_number }}
                         </div>
                         <div class="form-group">
+                            <strong>Promotion:</strong>
+                            @if($product->promotion_id != NULL)
+                            {{ $product->promotion->description }}
+                            @else
+                            -
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <strong>Description:</strong>
                             {{ $product->description }}
                         </div>

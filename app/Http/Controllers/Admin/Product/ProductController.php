@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Category;
+use App\Promotion;
 
 class ProductController extends Controller
 {
@@ -20,7 +21,8 @@ class ProductController extends Controller
     public function create()
     {
         $category = Category::pluck('category_name','id');
-        return view('admin.product.create', ['category' => $category]);
+        $promotion = Promotion::pluck('promotion_name','id');
+        return view('admin.product.create', ['category' => $category, 'promotion' => $promotion]);
     }
 
     
@@ -52,7 +54,8 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $category = Category::pluck('category_name','id');
-        return view('admin.product.edit', ['product' => $product, 'category' => $category]);
+        $promotion = Promotion::pluck('promotion_name','id');
+        return view('admin.product.edit', ['product' => $product, 'category' => $category, 'promotion' => $promotion]);
     }
 
     

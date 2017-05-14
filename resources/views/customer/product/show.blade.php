@@ -34,13 +34,17 @@
                             {{ $product->product_number }}
                         </div>
                         <div class="form-group">
+                            <strong>Promotion:</strong>
+                            {{ $product->promotion->description }}
+                        </div>
+                        <div class="form-group">
                             <strong>Description:</strong>
                             {{ $product->description }}
                         </div>
 
                         <div class="pull-right">
                             <a class="btn btn-primary" href="{{ route('products.index') }}">Back</a>
-                            <a class="btn btn-success" href="{{ route('booking.create', $product->id)}}">Book</a>
+                            <a class="btn btn-success" onclick="location.reload()" href="{{ route('booking.create', $product->id)}}">Book</a>
                         </div>
                     </div>
                 </div>

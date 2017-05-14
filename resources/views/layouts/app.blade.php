@@ -71,6 +71,7 @@
                                         @else
                                             <a href="{{ route('customer.profile') }}">Profile</a>
                                             <a href="{{ route('customer.myorder') }}">My Orders</a>
+                                            <a href="{{ route('customer.coupon') }}">Coupons</a>
                                         @endif
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

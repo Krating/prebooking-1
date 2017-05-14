@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Booking;
 use App\Product;
+use App\Coupon;
 
 class CustomerController extends Controller
 {
@@ -22,6 +23,13 @@ class CustomerController extends Controller
         $user = Auth::user()->id;
         $bookings = Booking::where('user_id', $user)->get();
         return view('customer.myorder', ['bookings' => $bookings]);
+    }
+
+    public function coupon()
+    {
+        $user = Auth::user()->id;
+        $coupons = Coupon::where('user_id', $user)->get();
+        return view('customer.coupon', ['coupons' => $coupons]);
     }
 
     public function index()

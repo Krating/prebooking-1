@@ -66,7 +66,7 @@
                                 <a class="btn btn-primary" href="{{ route('customer.myorder') }}">Back</a>
                                 @if($booking->status == 'Fully Paid')
                                 @else
-                                    <a class="btn btn-success" href="{{ route('customer.payment.create', $booking->id) }}" >Payment</a>
+                                    <a class="btn btn-success" onclick="location.reload()" href="{{ route('customer.payment.create', $booking->id) }}" >Payment</a>
                                 @endif
                             @endif
                         </div>
