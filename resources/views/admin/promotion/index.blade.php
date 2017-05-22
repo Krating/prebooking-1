@@ -36,7 +36,9 @@
 									<td>{{ $promotion->promotion_name }}</td>
 									<td>{{ $promotion->description }}</td>
 									<td>
-										//
+										{!! Form::open(['method'=>'DELETE', 'route'=>['promotion.destroy',$promotion->id]]) !!}
+										{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+										{!! Form::close() !!}
 									</td>
 								</tr>
 								@endforeach
