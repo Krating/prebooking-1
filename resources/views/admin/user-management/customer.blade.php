@@ -29,7 +29,7 @@
 							<td>{{ $customer->first_name }}</td>
 							<td>{{ $customer->last_name }}</td>
 							<td>
-								<a class="btn btn-info" href="{{ route('admin.show',$customer->id) }}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+								<a class="btn btn-info" href="{{ route('admin.show',$customer->id) }}">Show</a>
 							</td>
 						</tr>
 						@endforeach
