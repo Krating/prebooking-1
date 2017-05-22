@@ -1,17 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Stock</title>
+	<title>Product</title>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
+		<div class="col-md-11">
 			<div class="panel-heading">
-				<h2>Stock</h2>
+				<h2>Products</h2>
 				<div class="panel-body">
 
 					@if (session('status'))
@@ -19,15 +20,6 @@
 						{{ session('status') }}
 						</div>
 					@endif
-
-					<div class="btn-group">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Product <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="{{ route('category.index') }}">Category</a></li>
-						</ul>
-					</div>
 
 					<a class="btn btn-success" href="{{ route('product.create') }}">New</a>
 					<table class="table table-striped table-responsive">
@@ -43,9 +35,9 @@
 							@foreach($products as $key=> $product)
 							<tr>
 								<td>{{ ++$key }}</td>
-								<td>{{ $product->category->category_name }}</td>
 								<td>{{ $product->product_name }}</td>
 								<td>{{ $product->product_price }}</td>
+								<td>{{ $product->product_number }}</td>
 								<td>
 									@if($product->status == 'close')
 								  		<span class="text-danger">{{ $product->status }}</span>

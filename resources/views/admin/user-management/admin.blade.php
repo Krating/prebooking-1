@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@
 <body>
 	<div class="container">
 		<div class="row">
+		<div class="col-md-11">
 			<div class="panel-heading">
 				<h2>User Management</h2>
 			</div>
@@ -20,17 +21,7 @@
 				</div>
 				@endif
 
-				<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Admin <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="{{ route('user-management.customer') }}">Customer</a></li>
-					</ul>
-				</div>
-
-				<a class="btn btn-success" href="{{ route('admin.create') }}">New</a>
-				<a class="btn btn-info" href="{{ route('admin.blacklists') }}">Blacklist</a>
+				<a class="btn btn-success" href="{{ route('admin.create') }}">New Admin</a>
 
 				<table class="table table-striped table-responsive">
 					<thead>
@@ -56,6 +47,7 @@
 				</table>
 
 			</div>
+		</div>
 		</div>
 	</div>
 </body>

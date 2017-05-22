@@ -5,14 +5,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Category</title>
+	<title>Promotion</title>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 		<div class="col-md-11">
 			<div class="panel-heading">
-				<h2>Categories</h2>
+				<h2>Promotions</h2>
 				<div class="panel-body">
 
 					@if (session('status'))
@@ -21,23 +21,22 @@
 						</div>
 					@endif
 
-					<a class="btn btn-success" href="{{ route('category.create') }}">New</a>
+					<a class="btn btn-success" href="{{ route('promotion.create') }}">New</a>
 					<table class="table table-striped table-responsive">
 						<thead>
 							<th>#</th>
-							<th>Category</th>
+							<th>Promotion</th>
+							<th>Description</th>
 							<th>Action</th>
 						</thead>
 						<tbody>
-								@foreach($categories as $key=> $category)
+								@foreach($promotions as $key=> $promotion)
 								<tr>
 									<td>{{ ++$key }}</td>
-									<td>{{ $category->category_name }}</td>
+									<td>{{ $promotion->promotion_name }}</td>
+									<td>{{ $promotion->description }}</td>
 									<td>
-										{!! Form::open(['method'=>'DELETE', 'route'=>['category.destroy',$category->id]]) !!}
-										<a class="btn btn-primary" href="{{ route('category.edit',$category->id) }}">Edit</a>
-										{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-										{!! Form::close() !!}
+										//
 									</td>
 								</tr>
 								@endforeach
@@ -48,6 +47,7 @@
 		</div>
 		</div>
 	</div>
+</div>
 </body>
 </html>
 @stop

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     public $fillable = [
-    	'user_id', 'product_id', 'number', 'total_price', 'deposit', 'debt', 'payment_date', 'transmission_date', 'status', 
+    	'user_id', 'product_id', 'coupon_id', 'number', 'total_price', 'deposit', 'debt', 'payment_date', 'transmission_date', 'status', 
     	];
 
     public function product()

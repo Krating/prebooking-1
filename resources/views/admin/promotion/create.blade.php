@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Edit Product</title>
+	<title>Create Promotion</title>
 </head>
 <body>
 	<div class="container">
@@ -13,19 +13,17 @@
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<h2>Edit Product</h2>
+						<h2>Create Promotion</h2>
 					</div>
 					<div class="panel-body">
-						{!! Form::model($product, ['class'=>'form-horizontal', 'route' => ['product.update', $product->id], 'method'=>'PATCH']) !!}
-						@include('admin.product._form',['submitButtonText' => 'Edit'])
+						{!! Form::open(['class'=>'form-horizontal','route' => 'promotion.store','method'=>'POST']) !!}
+						@include('admin.promotion._form',['submitButtonText' => 'Create'])
 						{!! Form::close() !!}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
 </body>
 </html>
 @stop

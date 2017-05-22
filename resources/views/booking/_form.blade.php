@@ -24,6 +24,14 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('coupon_id', 'Coupon', ['class'=>'control-label col-md-4']) !!}
+	<div class="col-md-4">
+		{!! Form::select('coupon_id', $coupons, null, ['placeholder' => 'None', 'class'=>'form-control']) !!}
+			{!! $errors->has('coupon_id')?$errors->first('coupon_id'):'' !!}
+	</div>
+</div>
+
+<div class="form-group">
 	{!! Form::label('payment_date', 'Payment Date', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-4">
 		{!! Form::date('payment_date', null, ['class' => 'form-control']) !!}

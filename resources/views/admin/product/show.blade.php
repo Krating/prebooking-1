@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
@@ -32,6 +32,14 @@
                         <div class="form-group">
                             <strong>Number:</strong>
                             {{ $product->product_number }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Promotion:</strong>
+                            @if($product->promotion_id != NULL)
+                            {{ $product->promotion->description }}
+                            @else
+                            -
+                            @endif
                         </div>
                         <div class="form-group">
                             <strong>Description:</strong>

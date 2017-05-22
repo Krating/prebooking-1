@@ -1,16 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Blocks</title>
+    <title>Blacklist</title>
 </head>
 <body>
     <div class="container">
         <div class="row">
+        <div class="class col-md-11">
             <div class="panel-heading">
-                <h2>Blocks</h2>
+                <h2>Blacklists</h2>
             </div>
             <div class="panel-body">
 
@@ -19,8 +20,6 @@
                     {{ session('status') }}
                 </div>
                 @endif
-
-                <a class="btn btn-info" href="{{ route('user-management.admin') }}">Admins</a>
 
                 <table class="table table-striped table-responsive">
                     <thead>
@@ -46,6 +45,7 @@
                 </table>
 
             </div>
+        </div>
         </div>
     </div>
 </body>

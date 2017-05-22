@@ -11,7 +11,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style2.css') }}" rel="stylesheet">
+
 
     <!-- Scripts -->
     <script>
@@ -22,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-custom navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -71,6 +74,7 @@
                                         @else
                                             <a href="{{ route('customer.profile') }}">Profile</a>
                                             <a href="{{ route('customer.myorder') }}">My Orders</a>
+                                            <a href="{{ route('customer.coupon') }}">Coupons</a>
                                         @endif
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

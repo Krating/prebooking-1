@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-3">
+			<div class="col-md-8 col-md-offset-1">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h2>Edit Category</h2>

@@ -40,6 +40,17 @@ class UserTableSeeder extends Seeder
              'gender' => 'Female',
              'birthday' => '1993-02-02',
              'address' => 'cnx',
+             'role_id' => 11],
+             [
+             'id' => 21,
+             'username' => 'Krating',
+             'password' => bcrypt('123123'),
+             'email' => 'krating.dev@gmail.com',
+             'first_name' => 'Krating',
+             'last_name' => 'Cotanon',
+             'gender' => 'Female',
+             'birthday' => '1993-02-02',
+             'address' => 'cr',
              'role_id' => 11]
         ];
      }

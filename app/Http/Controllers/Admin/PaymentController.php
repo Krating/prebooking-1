@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Booking;
 use App\Payment;
+use App\User;
+use Auth;
+use Mail;
+use App\Mail\BookingDetail;
 
 class PaymentController extends Controller
 {
@@ -54,7 +58,15 @@ class PaymentController extends Controller
         $payment->status = $status_new;
         $payment->save();
         
-        return redirect()->route('payment.index');
-        
+        $booking = Booking::find($idx);
+        $user = Booking::where('id', $idx)->value('user_id');
+        $this->bookingDetail($booking, $user);
+
+        return redirect()->route('payment.index');  
+    }
+
+    public function bookingDetail($booking, $user){
+        $mail = User::find($user)->email;
+        Mail::to($mail)->send(new BookingDetail($booking));
     }
 }
