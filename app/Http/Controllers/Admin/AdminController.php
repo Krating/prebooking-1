@@ -9,23 +9,29 @@ use App\User;
 
 class AdminController extends Controller
 {
-	public function home()
+	public function index()
 	{
-		return view('admin.home');
+		return view('admin.index');
 	}
 
 	public function userManagement()
 	{
 		$role = Auth::user()->role_id;
 		$admins = User::where('role_id', $role)->get();
-		return view('admin.user-management', ['admins' => $admins]);
+		return view('admin.user-management.admin', ['admins' => $admins]);
 	}
 	
 	public function customer()
 	{
 		$role = 11;
 		$customers = User::where('role_id', $role)->get();
-		return view('admin.customer', ['customers' => $customers]);
+		return view('admin.user-management.customer', ['customers' => $customers]);
+	}
+
+	public function show($id)
+	{
+		$user = User::find($id);
+		return view('admin.user-management.show', ['user' => $user]);
 	}
 
 	public function create()
@@ -57,7 +63,7 @@ class AdminController extends Controller
 	    $admin->password = bcrypt('1234');
 	    $admin->save();
 
-	    return redirect()->route('admin.user-management')->with('status', 'Create User is Successful!');
+	    return redirect()->route('user-management.admin')->with('status', 'Create User is Successful!');
 	}
 
 	public function edit($id)
@@ -74,7 +80,7 @@ class AdminController extends Controller
 		$admin = Auth::user();
         $admin->password = bcrypt($request->password);
         $admin->save();
-        return redirect()->route('admin.user-management');
+        return redirect()->route('user-management.admin');
 	}
 
 	public function destroy($id)
@@ -89,7 +95,7 @@ class AdminController extends Controller
 			$user->delete();	
 			$msg = $user->first_name.' has been blocked';
 		}
-        return redirect()->route('admin.user-management', ['trashed' => $trashed])->with('status', $msg);
+        return redirect()->route('user-management.admin', ['trashed' => $trashed])->with('status', $msg);
 	}
 
 	public function blacklists()

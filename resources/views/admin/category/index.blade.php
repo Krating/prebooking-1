@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
 <body>
 	<div class="container">
 		<div class="row">
+		<div class="col-md-11">
 			<div class="panel-heading">
 				<h2>Categories</h2>
 				<div class="panel-body">
@@ -19,15 +20,6 @@
 						{{ session('status') }}
 						</div>
 					@endif
-
-					<div class="btn-group">
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Category <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="{{ route('product.index') }}">Product</a></li>
-						</ul>
-					</div>
 
 					<a class="btn btn-success" href="{{ route('category.create') }}">New</a>
 					<table class="table table-striped table-responsive">
@@ -54,8 +46,8 @@
 				</div>
 			</div>
 		</div>
+		</div>
 	</div>
-</div>
 </body>
 </html>
 @stop

@@ -19,12 +19,16 @@ class CreateBookingsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->integer('coupon_id')->unsigned()->nullable();
+            $table->foreign('coupon_id')->references('id')->on('coupons')->onDelete('cascade');
             $table->integer('number');
-            $table->string('address');
+            $table->double('total_price');
+            $table->double('discount');
+            $table->double('deposit');
+            $table->double('debt');
+            $table->date('payment_date');
+            $table->date('transmission_date');
             $table->string('status');
-            $table->string('total_price');
-            $table->string('deposit');
-            $table->string('debt');
             $table->timestamps();
         });
     }

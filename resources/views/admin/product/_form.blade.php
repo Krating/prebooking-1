@@ -1,7 +1,7 @@
 <div class="form-group">
 	{!! Form::label('category_id', 'Category', ['class'=>'control-label col-md-4']) !!}
 	<div class="col-md-6">
-		{!! Form::select('category_id', $category, null, ['class'=>'form-control']) !!}
+		{!! Form::select('category_id', $category, null, ['placeholder' => 'Select Category', 'class'=>'form-control']) !!}
 			{!! $errors->has('category_id')?$errors->first('category_id'):'' !!}
 	</div>
 </div>
@@ -27,6 +27,14 @@
 	<div class="col-md-6">
 		{!! Form::text('product_number', null, ['class' => 'form-control']) !!}
 		{!! $errors->has('product_number')?$errors->first('product_number'):'' !!}
+	</div>
+</div>
+
+<div class="form-group">
+	{!! Form::label('promotion_id', 'Promotion', ['class'=>'control-label col-md-4']) !!}
+	<div class="col-md-6">
+		{!! Form::select('promotion_id', $promotion, null, ['placeholder' => 'None', 'class'=>'form-control']) !!}
+			{!! $errors->has('promotion_id')?$errors->first('promotion_id'):'' !!}
 	</div>
 </div>
 

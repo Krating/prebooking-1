@@ -20,7 +20,10 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->double('product_price');
             $table->integer('product_number');
-            $table->string('description');
+            $table->integer('promotion_id')->unsigned()->nullable();
+            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade');
+            $table->string('description')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -9,19 +9,19 @@
 <body>
 	<div class="container">
 		<div class="row">
+		<div class="col-md-11">
 			<div class="panel-heading">
 				<h2>User Management</h2>
 			</div>
 			<div class="panel-body">
 
-				<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Customer <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="{{ route('admin.user-management') }}">Admin</a></li>
-					</ul>
+				@if (session('status'))
+				<div class="alert alert-success">
+					{{ session('status') }}
 				</div>
+				@endif
+
+				<a class="btn btn-success" href="{{ route('admin.create') }}">New Admin</a>
 
 				<table class="table table-striped table-responsive">
 					<thead>
@@ -31,18 +31,23 @@
 						<th>Action</th>
 					</thead>
 					<tbody>
-						@foreach($customers as $key=> $customer)
+						@foreach($admins as $key=> $admin)
 						<tr>
 							<td>{{ ++$key }}</td>
-							<td>{{ $customer->first_name }}</td>
-							<td>{{ $customer->last_name }}</td>
-							<td></td>
+							<td>{{ $admin->first_name }}</td>
+							<td>{{ $admin->last_name }}</td>
+							<td>
+								{!! Form::open(['method'=>'DELETE', 'route'=>['admin.destroy',$admin->id]]) !!}
+								{!! Form::submit('Block', ['class' => 'btn btn-danger']) !!}
+								{!! Form::close() !!}
+							</td>
 						</tr>
 						@endforeach
 					</tbody>
 				</table>
 
 			</div>
+		</div>
 		</div>
 	</div>
 </body>
