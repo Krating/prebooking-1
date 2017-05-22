@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <div class="row">
+        <div class="class col-md-11">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-info">
                     <div class="panel-heading">
@@ -51,6 +52,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </body>

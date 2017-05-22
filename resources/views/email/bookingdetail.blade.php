@@ -3,35 +3,38 @@
 <head>
 	<meta charset="utf-8">
 	<title>Booking Detail</title>
+	<style>
+		.test{
+			background-color:red;
+		}
+	</style>
 </head>
 <body>
-	<h1> Booking Detail </h1>
+	<div class="test">.</div>
+	<h3> Booking Detail </h3>
 	<div>
-    Product Name:
+    Product Name: {{ $booking->product->product_name }}
 	</div>
 	<div>
-    Price:
+    Price: {{ $booking->product->product_price }}
 	</div>
 	<div>
-    Number:
+    Number: {{ $booking->number }}
 	</div>
 	<div>
-    Total Price:
+    Total Price: {{ $booking->total_price }}
 	</div>
 	<div>
-    Deposit:
+    Deposit: {{ $booking->deposite }}
 	</div>
 	<div>
-    Debts:
+    Debts: {{ $booking->debt }}
 	</div>
 	<div>
-    Payment Date:
+    Payment Date: {{ $booking->payment_date }}
 	</div>
 	<div>
-    Transmission Date:
-	</div>
-	<div>
-    Address:
+    Transmission Date: {{ $booking->transmission_date }}
 	</div>
 </body>
 </html>

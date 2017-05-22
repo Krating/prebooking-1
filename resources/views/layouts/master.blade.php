@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -26,7 +27,7 @@
         ;
     </script>
 </head>
-<body class="main-body">
+<body class="main-bodsy">
 <nav class="navbar navbar-custom navbar-fixed-top">
     <!-- Collapsed Hamburger -->
     <div class="container-fluid">
@@ -93,21 +94,32 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            <div class="sidebar-toolbar text-center">
+            <!-- <div class="sidebar-toolbar text-center">
                     <img src="https://www.booknpay.net/secure/admin/assets/img/userb.png" class="img-circle" alt="User Image">
                 <div class="sidebar-content">
-                    <h3>Administrator</h3>
-
+                    <h3>Image</h3>
                 </div>
-            </div>
+            </div> -->
             <ul class="nav nav-sidebar navbar-fixed-left">
 
-                <li class="active"><a href="#">Dashboard<span class="sr-only">(current)</span></a></li>
-                <li><a href="{{ route('user-management.admin') }}">User Management</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Product</a></li>
-                <li><a href="#">Promotion</a></li>
-                <li><a href="#">Payment</a></li>
+                <li><a href="{{ route('admin.index') }}">Dashboard<span class="sr-only">(current)</span></a></li>
+                <li><a data-toggle="collapse" href="#collapse1">User Management</a></li>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <a class="list-group-item" href="{{ route('user-management.admin') }}">Admin</a>
+                            <a class="list-group-item" href="{{ route('user-management.customer') }}">Customer</a>
+                            <a class="list-group-item" href="{{ route('admin.blacklists') }}">Blacklist</a>
+                        </ul>
+                    </div>
+                <li><a data-toggle="collapse" href="#collapse2">Stock Management</a></li>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <a class="list-group-item" href="{{ route('category.index') }}">Category</a>
+                            <a class="list-group-item" href="{{ route('product.index') }}">Product</a>
+                            <a class="list-group-item" href="{{ route('promotion.index') }}">Promotion</a>
+                        </ul>
+                    </div>
+                <li><a href="{{ route('payment.index') }}">Payment</a></li>
             </ul>
 
         </div>

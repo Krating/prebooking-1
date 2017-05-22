@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/test', function () {
+	return view('email.bookingdetail');
+});
+
 Route::get('/', function () {
     return Auth::check() ? Auth::user()->role_id == '1' ? view('admin.index') : redirect()->route('products.index') : view('welcome'); 
 });
@@ -51,5 +55,8 @@ Route::group(['middleware' => ['auth']], function(){
 
 	Route::get('payment/create/{id}', 'Customer\PaymentController@create')->name('customer.payment.create');
 	Route::post('payment/store', 'Customer\PaymentController@store')->name('customer.payment.store');
+	Route::get('mail', function(){
+		return view('email.mail');
+	});
 
 });

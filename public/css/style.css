@@ -12,7 +12,7 @@ body {
     overflow-y: auto;
 }
 .navbar-custom{
-    background: #3C8DBC;
+    background: #5482ab;
 }
 
 .header-inner {
@@ -68,7 +68,7 @@ body {
   width: 100%;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -125,6 +125,10 @@ input[type="text"], input[type="password"] {
 }
 
 
+.navbar-nav > li > a {
+    color: #fff;
+}
+
 /* Sidebar navigation */
 .nav-sidebar {
     margin-right: -21px; /* 20px padding + 1px border */
@@ -134,6 +138,7 @@ input[type="text"], input[type="password"] {
 .nav-sidebar > li > a {
     padding-right: 20px;
     padding-left: 20px;
+    color: #b8c7ce;
 }
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
@@ -145,13 +150,27 @@ input[type="text"], input[type="password"] {
 .nav>li>a:focus, .nav>li>a:hover {
     text-decoration: none;
     background-color: #23527c;
-
 }
-.nav>li>a {
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #23527c;
+    border-color: #337ab7;
+}
+
+.list-group > a {
+    background-color: #3d515c;
     color: #b8c7ce;
 }
+a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, button.list-group-item:hover {
+    color: #b8c7ce;
+    text-decoration: none;
+    background-color: #23527c;
+}
+
 .content-index {
     padding: 20px;
+    margin-top: 50px;
+    overflow-x: hidden;
 }
 @media (min-width: 768px) {
     .content-index {

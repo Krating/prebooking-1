@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
 <body>
 	<div class="container">
 		<div class="row">
+		<div class="col-md-11">
 			<div class="panel-heading">
 				<h2>Products</h2>
 				<div class="panel-body">
@@ -19,12 +20,6 @@
 						{{ session('status') }}
 						</div>
 					@endif
-
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-default"><a href="{{ route('category.index') }}">Category</a></button>
-						<button type="button" class="btn btn-default"><a href="{{ route('promotion.index') }}">Promotion</a></button>
-						<button type="button" class="btn btn-default"><a href="{{ route('product.index') }}">Product</a></button>
-					</div>
 
 					<a class="btn btn-success" href="{{ route('product.create') }}">New</a>
 					<table class="table table-striped table-responsive">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
@@ -10,8 +10,9 @@
 <body>
 	<div class="container">
 		<div class="row">
+		<div class="class col-md-11">
 			<div class="panel-heading">
-				<h2>Payment List</h2>
+				<h2>Payments</h2>
 			</div>
 			<div class="panel-body">
 				<table class="table table-striped table-responsive">
@@ -43,6 +44,7 @@
 					</tbody>
 				</table>	
 			</div>
+		</div>
 		</div>
 	</div>
 </body>

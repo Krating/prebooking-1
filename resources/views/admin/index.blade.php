@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 	<a class="btn btn-info" href="{{ route('product.index') }}">Stock</a>
