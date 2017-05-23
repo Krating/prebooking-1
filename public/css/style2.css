@@ -31,6 +31,14 @@ a.navbar-brand {
   margin: 50px auto;
 }
 
+.form-body {
+  background: #ecf0f5;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .login-container {
   background: #FFFFFF;
   border-radius: 3px;
