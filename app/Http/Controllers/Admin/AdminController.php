@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use App\Booking;
 
 class AdminController extends Controller
 {
 	public function index()
 	{
-		return view('admin.index');
+		$totals = Booking::first()->total_price;
+		// dd($booking);
+		return view('admin.index', ['totals' => $totals]);
 	}
 
 	public function userManagement()

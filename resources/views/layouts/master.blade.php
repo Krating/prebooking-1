@@ -129,7 +129,7 @@
     </div>
 </div>
 <!--footer    -->
-<nav class="navbar navbar-custom navbar-fixed-bottom">
+<nav class="navbar navbar-footer navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="main-footer">
             © 2017, Tecmove, All rights reserved

@@ -14,6 +14,11 @@ body {
 .navbar-custom{
     background: #5482ab;
 }
+.navbar-footer{
+    background: #5482ab;
+    min-height: 0px;
+    height: 30px;
+}
 
 .header-inner {
   margin: 0 auto;
@@ -94,8 +99,9 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
 }
 
 .main-footer {
-  padding: 15px;
+  padding: 5px;
   color: #eee;
+
 }
 
 /*
@@ -160,6 +166,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
 .list-group > a {
     background-color: #3d515c;
     color: #b8c7ce;
+    border: #3d515c;
 }
 a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, button.list-group-item:hover {
     color: #b8c7ce;
@@ -197,4 +204,19 @@ a.navbar-brand {
     background-position: left top;
     background-size: 100%;
     padding: 25px 20px;
+}
+
+.box {
+  margin-top: 30px;
+}
+
+.bigbox {
+  height: 300px;
+}
+.smbox {
+  height: 150px;
+}
+
+.act-right:last-child {
+  width:50px;
 }
