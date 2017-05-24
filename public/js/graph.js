@@ -1,4 +1,5 @@
 var cg = document.getElementById("myChart");
+
 var chart = new Chart(cg, {
     type: 'bar',
     data: {
