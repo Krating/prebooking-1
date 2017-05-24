@@ -12,9 +12,7 @@ class AdminController extends Controller
 {
 	public function index()
 	{
-		$totals = Booking::first()->total_price;
-		// dd($booking);
-		return view('admin.index', ['totals' => $totals]);
+		return view('admin.index');
 	}
 
 	public function userManagement()
