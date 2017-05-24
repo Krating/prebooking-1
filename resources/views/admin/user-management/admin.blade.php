@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-		<div class="col-md-11">
+		<div class="col-md-10">
 			<div class="panel-heading">
 				<h2>User Management</h2>
 			</div>
@@ -28,7 +28,7 @@
 						<th>#</th>
 						<th>Firstname</th>
 						<th>Lastname</th>
-						<th>Action</th>
+						<th class="act-right">Action</th>
 					</thead>
 					<tbody>
 						@foreach($admins as $key=> $admin)
