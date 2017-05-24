@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-3 col-md-offset-1 box">
-			<div class="login-container smbox">${{ $totals }}<br>Total bookings made today</div>
+			<div class="login-container smbox">Total bookings made today</div>
 		</div>
 		<div class="col-md-3 box">
 			<div class="login-container smbox">Today's Booking</div>
