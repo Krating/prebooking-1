@@ -16,6 +16,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 
+
     <!-- Scripts -->
     <script>
         window.Laravel = {
@@ -139,6 +140,5 @@
 
 <!-- Scripts -->
 <script src="{{asset('js/app.js') }}"></script>
-
 </body>
 </html>

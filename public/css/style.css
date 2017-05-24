@@ -176,7 +176,7 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus, 
 
 .content-index {
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
     overflow-x: hidden;
 }
 @media (min-width: 768px) {
@@ -207,11 +207,11 @@ a.navbar-brand {
 }
 
 .box {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .bigbox {
-  height: 300px;
+  height: auto;
 }
 .smbox {
   height: 150px;
