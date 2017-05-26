@@ -220,3 +220,7 @@ a.navbar-brand {
 .act-right:last-child {
   width:50px;
 }
+
+.mbtn {
+  margin-left: 3px;
+}
