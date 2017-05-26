@@ -21,7 +21,7 @@
 						</div>
 					@endif
 
-					<a class="btn btn-success" href="{{ route('product.create') }}">New</a>
+					<a class="btn btn-success" href="{{ route('product.create') }}">New Product</a>
 					<table class="table table-striped table-responsive">
 						<thead>
 							<th>#</th>

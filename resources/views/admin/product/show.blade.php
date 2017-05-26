@@ -5,15 +5,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Information</title>
+    <title>Product Detail</title>
 </head>
 <body>
     <div class="container">
         <div class="row">
+        <div class="class col-md-11 box">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h2>Information</h2>
+                        <h2>Product Detail</h2>
                     </div>
                     <div class="panel-body">
 
@@ -58,6 +59,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </body>

@@ -11,7 +11,7 @@
 		<div class="row">
 		<div class="col-md-10">
 			<div class="panel-heading">
-				<h2>User Management</h2>
+				<h2>Admin List</h2>
 			</div>
 			<div class="panel-body">
 

@@ -10,7 +10,7 @@
 	<div class="col-md-1 col-md-offset-7">
 	<a href="{{ route('category.index') }}" class="btn btn-primary">Back</a>
 	</div>
-	<div class="col-md-2 col-md-offset-0">
+	<div class="col-md-2 col-md-offset-0 mbtn">
 		{!! Form::button($submitButtonText, ['class' => 'btn-success form-control','type' => 'submit']) !!}
 	</div>
 </div>
