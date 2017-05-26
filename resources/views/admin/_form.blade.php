@@ -2,7 +2,7 @@
 	<label for="first_name" class="col-md-4 control-label">Firstname</label>
 
 	<div class="col-md-6">
-		<input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
+		<input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" placeholder="Enter first name" required autofocus>
 
 		@if ($errors->has('first_name'))
 		<span class="help-block">
@@ -16,7 +16,7 @@
 	<label for="last_name" class="col-md-4 control-label">Lastname</label>
 
 	<div class="col-md-6">
-		<input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required>
+		<input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" placeholder="Enter last name" required>
 
 		@if ($errors->has('last_name'))
 		<span class="help-block">
@@ -59,7 +59,7 @@
 	<label for="address" class="col-md-4 control-label">Address</label>
 
 	<div class="col-md-6">
-		<input id="address" class="form-control" name="address" value="{{ old('address') }}" required>
+		<input id="address" class="form-control" name="address" value="{{ old('address') }}" placeholder="Enter address"  required>
 
 		@if ($errors->has('address'))
 		<span class="help-block">
@@ -73,7 +73,7 @@
 	<label for="username" class="col-md-4 control-label">Username</label>
 
 	<div class="col-md-6">
-		<input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
+		<input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Enter user name"  required>
 
 		@if ($errors->has('username'))
 		<span class="help-block">
@@ -87,7 +87,7 @@
 	<label for="email" class="col-md-4 control-label">E-Mail</label>
 
 	<div class="col-md-6">
-		<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+		<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Enter email"  required>
 
 		@if ($errors->has('email'))
 		<span class="help-block">

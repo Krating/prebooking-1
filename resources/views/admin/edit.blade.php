@@ -15,7 +15,7 @@
 					<div class="panel-heading">
 						<h2>Change Password</h2>
 					</div>
-					
+
 					<div class="panel-body">
                         @if (session('status'))
                         <div class="alert alert-success">
@@ -32,7 +32,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Enter your new password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -46,7 +46,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm your new password" required>
 
                                 @if ($errors->has('password_confirmation'))
                                     <span class="help-block">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         {!! Form::close() !!}
-                        
+
                     </div>
                 </div>
             </div>

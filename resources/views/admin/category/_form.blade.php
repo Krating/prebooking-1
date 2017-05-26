@@ -1,7 +1,7 @@
 <div class="form-group">
 	{!! Form::label('category_name', 'Category Name', ['class'=>'control-label col-md-4']) !!}
 	<div class="col-md-6">
-		{!! Form::text('category_name' , null, ['class'=>'form-control']) !!}
+		{!! Form::text('category_name' , null, ['class'=>'form-control', 'placeholder'=>'Enter your category name.']) !!}
 		{!! $errors->has('category_name')?$errors->first('category_name'):'' !!}
 	</div>
 </div>
