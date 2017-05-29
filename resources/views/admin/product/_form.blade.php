@@ -9,7 +9,7 @@
 <div class="form-group">
 	{!! Form::label('product_name', 'Product Name', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-6">
-		{!! Form::text('product_name', null, ['class' => 'form-control']) !!}
+		{!! Form::text('product_name', null, ['class' => 'form-control', 'placeholder'=>'Enter product name']) !!}
 		{!! $errors->has('product_name')?$errors->first('product_name'):'' !!}
 	</div>
 </div>
@@ -17,7 +17,7 @@
 <div class="form-group">
 	{!! Form::label('product_price', 'Price', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-6">
-		{!! Form::text('product_price', null, ['class' => 'form-control']) !!}
+		{!! Form::text('product_price', null, ['class' => 'form-control', 'placeholder'=>'Enter price of product']) !!}
 		{!! $errors->has('product_price')?$errors->first('product_price'):'' !!}
 	</div>
 </div>
@@ -25,7 +25,7 @@
 <div class="form-group">
 	{!! Form::label('product_number', 'Number', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-6">
-		{!! Form::text('product_number', null, ['class' => 'form-control']) !!}
+		{!! Form::text('product_number', null, ['class' => 'form-control', 'placeholder'=>'Enter amount of product']) !!}
 		{!! $errors->has('product_number')?$errors->first('product_number'):'' !!}
 	</div>
 </div>
@@ -41,7 +41,7 @@
 <div class="form-group">
 	{!! Form::label('description', 'Description', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-6">
-		{!! Form::textarea('description', null, ['class' => 'form-control']) !!}
+		{!! Form::textarea('description', null, ['class' => 'form-control','placeholder'=>'Enter product description']) !!}
 		{!! $errors->has('description')?$errors->first('description'):'' !!}
 	</div>
 </div>

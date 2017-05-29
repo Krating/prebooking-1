@@ -10,7 +10,7 @@
                 <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                 <label for="username" class="form-field">
                     <span>Username</span>
-                    <input id="username" type="text" class="inp-full-width" name="username" value="{{ old('username') }}" required autofocus>
+                    <input id="username" type="text" class="inp-full-width" name="username" value="{{ old('username') }}" placeholder="Enter your user name" required autofocus>
                     @if ($errors->has('username'))
                         <span class="help-block">
                             <strong>{{ $errors->first('username') }}</strong>
@@ -22,7 +22,7 @@
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <label for="password" class="form-field">
                     <span>Password</span>
-                    <input id="password" type="password" class="inp-full-width" name="password" required>
+                    <input id="password" type="password" class="inp-full-width" name="password" placeholder="Enter your password" required>
                     @if ($errors->has('password'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>

@@ -77,6 +77,10 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  font-size: 12px;
+}
+#address {
+  font-size: 12px;
 }
 
 .btn-full-width {
