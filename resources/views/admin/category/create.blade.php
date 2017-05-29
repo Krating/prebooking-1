@@ -8,24 +8,16 @@
 	<title>Create Category</title>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-        <div class="class col-md-11 box">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="panel panel-info">
-					<div class="panel-heading">
+	<div class="form-container">
+
+
 						<h2>Create Category</h2>
-					</div>
-					<div class="panel-body">
 						{!! Form::open(['class'=>'form-horizontal','route' => 'category.store','method'=>'POST']) !!}
 						@include('admin.category._form',['submitButtonText' => 'Create'])
 						{!! Form::close() !!}
-					</div>
-				</div>
-			</div>
+
 		</div>
-		</div>
-	</div>
+
 </body>
 </html>
 @stop
