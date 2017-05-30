@@ -18,13 +18,6 @@ class CustomerController extends Controller
         return view('customer.profile', ['user' => $user]);
     }
 
-    public function myorders()
-    {
-        $user = Auth::user()->id;
-        $bookings = Booking::where('user_id', $user)->get();
-        return view('customer.myorder', ['bookings' => $bookings]);
-    }
-
     public function coupon()
     {
         $user = Auth::user()->id;

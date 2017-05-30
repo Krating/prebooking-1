@@ -27,7 +27,7 @@
 								<td>{{ $booking->product->product_name }}</td>
 								<td>{{ $booking->status }}</td>
 								<td>
-									<a class="btn btn-info" href="{{ route('booking.show',$booking->id) }}">Show</a>
+									<a class="btn btn-info" href="{{ route('myorder.show',$booking->id) }}">Show</a>
 								</td>
 							</tr>
 							@endforeach

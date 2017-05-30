@@ -41,7 +41,7 @@
 
 <div class="row">
 	<div class="col-md-2 col-md-offset-4">
-	<a href="{{ route('customer.myorder') }}" class="btn btn-primary form-control">Cancel</a>
+	<a href="{{ route('myorder.index') }}" class="btn btn-primary form-control">Cancel</a>
 	</div>
 	<div class="col-md-2 col-md-offset-0">
 		{!! Form::button($submitButtonText, ['class' => 'btn-success form-control','type' => 'submit']) !!}

@@ -12,9 +12,9 @@
         <div class="row">
         <div class="class col-md-11 box">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-info">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2>Profile</h2>
+                        <h3>Profile</h3>
                     </div>
                     <div class="panel-body">
                         <div class="form-group">

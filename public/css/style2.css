@@ -126,3 +126,13 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
 .content-index {
   padding: 20px;
 }
+
+.form-container{
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 30px auto;
+    width: 750px
+
+}

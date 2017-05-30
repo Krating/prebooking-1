@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('content')
 
 <!DOCTYPE html>
@@ -10,73 +10,64 @@
 <body>
     <div class="container">
         <div class="row">
-        <div class="class col-md-11 box">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3>Information</h3>
                     </div>
                     <div class="panel-body">
-
+                        
                         <div class="form-group">
                             <strong>Name:</strong>
-                            {{ $payment->booking->user->first_name }} &nbsp {{ $payment->booking->user->last_name }}
+                            {{ $booking->user->first_name }} &nbsp {{ $booking->user->last_name }} 
                         </div>
                         <div class="form-group">
                             <strong>Product Name:</strong>
-                            {{ $payment->booking->product->product_name }}
+                            {{ $booking->product->product_name }}
                         </div>
                         <div class="form-group">
-                            <strong>Product Price:</strong>
-                            {{ $payment->booking->product->product_price }} THB.
+                            <strong>Price:</strong>
+                            {{ $booking->product->product_price }} THB.
                         </div>
                         <div class="form-group">
                             <strong>Number:</strong>
-                            {{ $payment->booking->number }}
+                            {{ $booking->number }}
                         </div>
                         <div class="form-group">
                             <strong>Total Price:</strong>
-                            {{ $payment->booking->total_price }} THB.
-                        </div>
-                        <div class="form-group">
-                            <strong>Total Deposit:</strong>
-                            {{ $payment->booking->deposit }} THB.
-                        </div>
-                        <div class="form-group">
-                            <strong>Debts:</strong>
-                            {{ $payment->booking->debt }} THB.
+                            {{ $booking->total_price }} THB.
                         </div>
                         <div class="form-group">
                             <strong>Deposit:</strong>
-                            {{ $payment->amount }} THB.
+                            {{ $booking->deposit }} THB.
                         </div>
                         <div class="form-group">
-                            <strong>Date:</strong>
-                            {{ $payment->date }}
+                            <strong>Debts:</strong>
+                            {{ $booking->debt }} THB.
                         </div>
                         <div class="form-group">
-                            <strong>Time:</strong>
-                            {{ $payment->time }}
+                            <strong>Payment Date:</strong>
+                            {{ $booking->payment_date }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Transmission Date:</strong>
+                            {{ $booking->transmission_date }}
                         </div>
                         <div class="form-group">
                             <strong>Address:</strong>
-                            {{ $payment->booking->address }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Slip:</strong><br>
-                            <img src="/slips/{{ $payment->slip }}">
+                            {{ $booking->user->address }}
                         </div>
 
                         <div class="pull-right">
-                            <a class="btn btn-primary" href="{{ route('payment.index') }}">Back</a>
-                                @if($payment->status != "Approved")
-                                    <a class="btn btn-success" href=" {{ route('payment.approve', [$payment->id, $payment->booking]) }}">Approve</a>
+                                <a class="btn btn-primary" href="{{ route('myorder.index') }}">Back</a>
+                                @if($booking->status == 'Fully Paid')
+                                @else
+                                    <a class="btn btn-success" onclick="location.reload()" href="{{ route('customer.payment.create', $booking->id) }}" >Payment</a>
                                 @endif
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </body>

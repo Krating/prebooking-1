@@ -39,6 +39,10 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 	Route::resource('payment', 'Admin\PaymentController');
 	Route::get('payment/approve/{id}/{idx}', 'Admin\PaymentController@approve')->name('payment.approve');
 
+	Route::resource('booking', 'Admin\BookingController');
+	Route::get('booking/approve/{id}', 'Admin\BookingController@edit')->name('booking.approve');
+
+
 });
 
 Route::group(['middleware' => ['auth']], function(){
@@ -46,17 +50,16 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::resource('products', 'Customer\CustomerController');
 	Route::get('products', 'Customer\CustomerController@index')->name('products.index');
 	Route::get('customer/{id}/edit', 'Customer\CustomerController@edit')->name('customer.edit');
-	Route::get('myorder', 'Customer\CustomerController@myorders')->name('customer.myorder');
 	Route::get('profile', 'Customer\CustomerController@profile')->name('customer.profile');
 	Route::get('coupons', 'Customer\CustomerController@coupon')->name('customer.coupon');
 
-	Route::resource('booking', 'BookingController');
-	Route::get('booking/create/{id}', 'BookingController@create')->name('booking.create');
+	Route::resource('myorder', 'Customer\BookingController');
+	Route::get('myorder/create/{id}', 'Customer\BookingController@create')->name('myorder.create');
 
 	Route::get('payment/create/{id}', 'Customer\PaymentController@create')->name('customer.payment.create');
 	Route::post('payment/store', 'Customer\PaymentController@store')->name('customer.payment.store');
-	Route::get('mail', function(){
-		return view('email.mail');
-	});
+	// Route::get('mail', function(){
+	// 	return view('email.mail');
+	// });
 
 });

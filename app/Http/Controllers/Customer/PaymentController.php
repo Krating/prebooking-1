@@ -40,6 +40,6 @@ class PaymentController extends Controller
         $status = "Processing";
         $input['status'] = $status;
         Payment::create($input);
-        return redirect()->route('customer.myorder');
+        return redirect()->route('myorder.index');
     }
 }
