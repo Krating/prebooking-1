@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
 
 <!DOCTYPE html>
@@ -10,10 +10,11 @@
 <body>
     <div class="container">
         <div class="row">
+        <div class="class col-md-11 box">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-info">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2>Information</h2>
+                        <h3>Information</h3>
                     </div>
                     <div class="panel-body">
                         
@@ -59,19 +60,15 @@
                         </div>
 
                         <div class="pull-right">
-                            @if(Auth::user()->role_id === 1)
-                                <a class="btn btn-primary" href="{{ route('booking.index') }}">Back</a>
-                            @else
-                                <a class="btn btn-primary" href="{{ route('customer.myorder') }}">Back</a>
-                                @if($booking->status == 'Fully Paid')
-                                @else
-                                    <a class="btn btn-success" onclick="location.reload()" href="{{ route('customer.payment.create', $booking->id) }}" >Payment</a>
+                                <a class="btn btn-primary" href=" {{ route('booking.index') }} ">Back</a>
+                                @if($booking->status == "Processing")
+                                <a class="btn btn-success" onclick="location.reload()" href="{{ route('booking.approve', $booking->id)}}">Approve</a>
                                 @endif
-                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </body>

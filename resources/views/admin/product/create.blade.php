@@ -9,12 +9,11 @@
 </head>
 <body>
 	<div class="form-container">
-						<h2>Create Product</h2>
-						{!! Form::open(['class'=>'form-horizontal','route' => 'product.store','method'=>'POST']) !!}
-						@include('admin.product._form',['submitButtonText' => 'Create'])
-						{!! Form::close() !!}
-					</div>
-				</div>
+		<h2>Create Product</h2>
+		{!! Form::open(['class'=>'form-horizontal','route' => 'product.store','method'=>'POST']) !!}
+		@include('admin.product._form',['submitButtonText' => 'Create'])
+		{!! Form::close() !!}
+	</div>
 </body>
 </html>
 @stop

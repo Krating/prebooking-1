@@ -70,7 +70,7 @@
                                             <a href="{{ route('admin.edit', $admin->id) }}">Change Password</a>
                                         @else
                                             <a href="{{ route('customer.profile') }}">Profile</a>
-                                            <a href="{{ route('customer.myorder') }}">My Orders</a>
+                                            <a href="{{ route('myorder.index') }}">My Orders</a>
                                             <a href="{{ route('customer.coupon') }}">Coupons</a>
                                         @endif
                                         <a href="{{ route('logout') }}"

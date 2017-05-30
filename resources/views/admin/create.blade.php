@@ -8,11 +8,11 @@
 </head>
 <body>
 	<div class="form-container">
-	<h2>Create Admin</h2>
-						{!! Form::open(['class'=>'form-horizontal','route' => 'admin.store','method'=>'POST']) !!}
-						@include('admin._form',['submitButtonText' => 'Create'])
-						{!! Form::close() !!}
-					</div>
+		<h2>Create Admin</h2>
+		{!! Form::open(['class'=>'form-horizontal','route' => 'admin.store','method'=>'POST']) !!}
+		@include('admin._form',['submitButtonText' => 'Create'])
+		{!! Form::close() !!}
+	</div>
 </body>
 </html>
 @endsection

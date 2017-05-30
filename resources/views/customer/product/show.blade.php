@@ -11,9 +11,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-info">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2>Information</h2>
+                        <h3>Information</h3>
                     </div>
                     <div class="panel-body">
 
@@ -48,7 +48,7 @@
 
                         <div class="pull-right">
                             <a class="btn btn-primary" href="{{ route('products.index') }}">Back</a>
-                            <a class="btn btn-success" onclick="location.reload()" href="{{ route('booking.create', $product->id)}}">Book</a>
+                            <a class="btn btn-success" onclick="location.reload()" href="{{ route('myorder.create', $product->id)}}">Book</a>
                         </div>
                     </div>
                 </div>

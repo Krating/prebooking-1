@@ -18,7 +18,7 @@
 <div class="form-group">
 	{!! Form::label('number', 'Number', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-4">
-		{!! Form::number('number', null, [ 'min' => '1' , 'max' => $product->product_number , 'class' => 'form-control']) !!}
+		{!! Form::number('number', null, [ 'min' => '1' , 'class' => 'form-control']) !!}
 		{!! $errors->has('number')?$errors->first('number'):'' !!}
 	</div>
 </div>
@@ -31,13 +31,13 @@
 	</div>
 </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
 	{!! Form::label('payment_date', 'Payment Date', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-4">
 		{!! Form::date('payment_date', null, ['class' => 'form-control']) !!}
 		{!! $errors->has('payment_date')?$errors->first('payment_date'):'' !!}
 	</div>
-</div>
+</div> -->
 
 <div class="form-group">
 	{!! Form::label('transmission_date', 'Transmission Date', ['class' => 'control-label col-md-4']) !!}
