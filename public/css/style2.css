@@ -136,3 +136,14 @@ input[type="text"], input[type="password"], input[type="email"], input[type="dat
     width: 750px
 
 }
+
+.table-bordered {
+  text-align: center;
+}
+.thead {
+  background-color: gray;
+  color: #fff;
+}
+.th {
+  text-align: center;
+}

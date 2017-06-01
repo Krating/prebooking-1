@@ -59,6 +59,32 @@
                             {{ $booking->user->address }}
                         </div>
 
+                        <strong>Payment History:</strong>
+                        @if($booking->deposit == 0)
+                        There are no data
+                        @else
+                        <table class="table table-bordered table-responsive" >
+                            <thead class="thead">
+                                <tr>
+                                    <th class="th">#</th>
+                                    <th class="th">Transaction Date</th>
+                                    <th class="th">Amount</th>
+                                    <th class="th">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($payments as $key=> $payment)
+                                <tr>
+                                    <td>{{ ++$key }}</td>
+                                    <td>{{ $payment->date }} &nbsp {{ $payment->time }}</td>
+                                    <td>{{ $payment->amount }}</td>
+                                    <td>{{ $payment->status }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @endif
+
                         <div class="pull-right">
                                 <a class="btn btn-primary" href=" {{ route('booking.index') }} ">Back</a>
                                 @if($booking->status == "Processing")

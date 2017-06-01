@@ -10,6 +10,7 @@ use App\Product;
 use App\Booking;
 use App\Promotion;
 use App\Coupon;
+use App\Payment;
 use Mail;
 use App\Mail\BookingDetail;
 
@@ -71,7 +72,8 @@ class BookingController extends Controller
     public function show($id)
     {
         $booking = Booking::find($id);
-        return view('customer.booking.show', ['booking' => $booking]);
+        $payments = Payment::where('booking_id', $id)->get();
+        return view('customer.booking.show', ['booking' => $booking, 'payments' => $payments]);
     }
 
 

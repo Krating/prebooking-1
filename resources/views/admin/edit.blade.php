@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="form-container">
-		<h2>Change Password</h2>
+        <h2>Change Password</h2> 
 
                         @if (session('status'))
                         <div class="alert alert-success">
