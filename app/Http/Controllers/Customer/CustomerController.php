@@ -29,7 +29,7 @@ class CustomerController extends Controller
     {
         $status = "open";
         $products = Product::where('status', $status)->get();
-        return view('customer.product.index', ['products' => $products]);
+        return view('customer.index', ['products' => $products]);
     }
 
     public function create()

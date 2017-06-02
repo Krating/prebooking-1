@@ -58,8 +58,12 @@ Route::group(['middleware' => ['auth']], function(){
 
 	Route::get('payment/create/{id}', 'Customer\PaymentController@create')->name('customer.payment.create');
 	Route::post('payment/store', 'Customer\PaymentController@store')->name('customer.payment.store');
+
 	// Route::get('mail', function(){
 	// 	return view('email.mail');
 	// });
 
 });
+
+	Route::post('search_code', 'SearchController@search')->name('search-autocomplete');
+	Route::post('booking/search_code', 'SearchController@searchBooking')->name('search-booking');
