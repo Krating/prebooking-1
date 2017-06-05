@@ -15,10 +15,21 @@
 				<h2>Payments</h2>
 			</div>
 			<div class="panel-body">
+
+				<div id="search">
+				    <form class="form-inline search-form" role="form" action="{{ route('search-payment') }}" method="post">
+				      {{ csrf_field() }}
+				        <div class="form-group">
+				        		<input type="text" name="search_code" class="form-control" placeholder="Search here">
+				        </div>
+				        <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
+				    </form>
+				 </div>
+
 				<table class="table table-striped table-responsive">
 					<thead>
 						<th>#</th>
-						<th>Product</th>
+						<th>Booking ID</th>
 						<th>Customer</th>
 						<th>Deposit (THB.)</th>
 						<th>Date</th>
@@ -30,7 +41,7 @@
 						@foreach($payments as $key=> $payment)
 							<tr>
 								<td>{{ ++$key }}</td>
-								<td>{{ $payment->booking->product->product_name }}</td>
+								<td>{{ $payment->booking->booking_code }}</td>
 								<td>{{ $payment->booking->user->first_name }}</td>
 								<td>{{ $payment->amount }}</td>
 								<td>{{ $payment->date }}</td>

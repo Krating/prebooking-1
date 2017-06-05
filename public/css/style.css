@@ -235,3 +235,34 @@ a.navbar-brand {
     width: 750px
 
 }
+
+.search-form .form-control {
+height: 35px;
+padding: 8px 15px;
+color: #000;
+font-size: 13px;
+line-height: 20px;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 0!important;
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
+.btn-custom {
+color: ##FFFFFF;            
+background-color: #7bae23;
+border-radius: 0!important;
+padding: 6px 10px;
+
+}
+
+.btn-custom:hover{
+background-color:#9AC94B;
+border-radius: 0!important;
+
+}
+
+.custom-glyph-color{
+    color:#fff;
+}

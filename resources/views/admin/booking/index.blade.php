@@ -29,7 +29,7 @@
 				<table class="table table-striped table-responsive">
 					<thead>
 						<th>#</th>
-						<th>Product Name</th>
+						<th>Booking ID</th>
 						<th>Status</th>
 						<th>Action</th>
 					</thead>
@@ -37,7 +37,7 @@
 						@foreach($bookings as $key=> $booking)
 						<tr>
 							<td>{{ ++$key }}</td>
-							<td>{{ $booking->product->product_name }}</td>
+							<td>{{ $booking->booking_code }}</td>
 							<td>{{ $booking->status }}</td>
 							<td>
 								<a class="btn btn-info" href="{{ route('booking.show', $booking->id) }}">Show</a>

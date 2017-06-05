@@ -41,7 +41,7 @@ class ProductTableSeeder extends Seeder
     		'id' => 31,
             'category_id' => 21,
     		'promotion_id' => 1,
-    		'product_name' => 'Cememt Pole',
+    		'product_name' => 'Cement Pole',
     		'product_price' => '100',
     		'product_number' => '5000',
     		'description' => '5 inchs',

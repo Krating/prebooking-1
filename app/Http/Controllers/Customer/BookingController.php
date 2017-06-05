@@ -13,6 +13,8 @@ use App\Coupon;
 use App\Payment;
 use Mail;
 use App\Mail\BookingDetail;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class BookingController extends Controller
 {
@@ -47,7 +49,20 @@ class BookingController extends Controller
         $result = $product_number-$number;
         $num->product_number = $result;
         $num->save();
+
         $booking = new Booking($request->all());
+
+        $today = Carbon::today()->toDateTimeString();
+        $dt = explode(' ' ,$today);
+        $dt0 = $dt[0];
+        $datetime = explode('-' ,$dt0);
+        $year = $datetime[0];
+        $month = $datetime[1];
+        $day = $datetime[2];
+        $charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $random = Str::random(4);
+        $code = "PB";
+        $booking['booking_code'] = $code.$year.$month.$day.$random;
         
         $status = "Processing";
         $booking['status'] = $status;

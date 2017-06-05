@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Information</title>
+    <title>Payment Detail</title>
 </head>
 <body>
     <div class="container">
@@ -14,10 +14,14 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>Information</h3>
+                        <h3>Payment Detail</h3>
                     </div>
                     <div class="panel-body">
 
+                        <div class="form-group">
+                            <strong>Boooking ID:</strong>
+                            {{ $payment->booking->booking_code }}
+                        </div>
                         <div class="form-group">
                             <strong>Name:</strong>
                             {{ $payment->booking->user->first_name }} &nbsp {{ $payment->booking->user->last_name }}
@@ -60,7 +64,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Address:</strong>
-                            {{ $payment->booking->address }}
+                            {{ $payment->booking->user->address }}
                         </div>
                         <div class="form-group">
                             <strong>Slip:</strong><br>

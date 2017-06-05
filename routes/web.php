@@ -37,11 +37,14 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 	Route::resource('promotion', 'Admin\Product\PromotionController');
 
 	Route::resource('payment', 'Admin\PaymentController');
-	Route::get('payment/approve/{id}/{idx}', 'Admin\PaymentController@approve')->name('payment.approve');
+	Route::get('payment/approve/{id}/{booking}', 'Admin\PaymentController@approve')->name('payment.approve');
 
 	Route::resource('booking', 'Admin\BookingController');
 	Route::get('booking/approve/{id}', 'Admin\BookingController@edit')->name('booking.approve');
 
+	Route::post('product/search_code', 'SearchController@searchProduct')->name('search-product');
+	Route::post('booking/search_code', 'SearchController@searchBooking')->name('search-booking');
+	Route::post('payment/search_code', 'SearchController@searchPayment')->name('search-payment');
 
 });
 
@@ -59,11 +62,11 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::get('payment/create/{id}', 'Customer\PaymentController@create')->name('customer.payment.create');
 	Route::post('payment/store', 'Customer\PaymentController@store')->name('customer.payment.store');
 
+	Route::post('search_code', 'SearchController@search')->name('search-autocomplete');
+	Route::post('myorder/search_code', 'SearchController@searchMyorder')->name('search-myorder');
+
 	// Route::get('mail', function(){
 	// 	return view('email.mail');
 	// });
 
 });
-
-	Route::post('search_code', 'SearchController@search')->name('search-autocomplete');
-	Route::post('booking/search_code', 'SearchController@searchBooking')->name('search-booking');

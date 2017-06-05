@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Information</title>
+    <title>Product Detail</title>
 </head>
 <body>
     <div class="container">
@@ -13,7 +13,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>Information</h3>
+                        <h3>Product Detail</h3>
                     </div>
                     <div class="panel-body">
 
