@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Category;
 use App\Promotion;
+use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Input as input;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -26,19 +29,27 @@ class ProductController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(Request $request, ImageManager $photo)
     {
         $this->validate($request,[
             'category_id' => 'required',
             'product_name' => 'required|unique:products',
             'product_price' => 'required|numeric',
             'product_number' => 'required|numeric',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
-        $product = new Product($request->all());
+        $input = $request->all();
+        $img = $request->file('photo');
+        $photoname = time().'-'.$img->getClientOriginalName();
+        $path = public_path('photos');
+        $photo->make($img)->resize(170, 170)->save($path.'/'.$photoname);
+        $input['photo'] = $photoname;
+        $product = new Product($input);
         $status = "close";
         $product['status'] = $status;
         $product->save();
+
         return redirect()->route('product.index')->with('status', 'Create Product is Successful!');
     }
 

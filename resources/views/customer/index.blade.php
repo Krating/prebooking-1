@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
+
 			<div class="panel-heading">
 				<h2>Product List</h2>
 				<div class="panel-body">
@@ -29,6 +29,21 @@
 				        <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
 				      </form>
 				    </div>
+
+
+					
+					<div class="row box">
+					 	<div class="col-sm-6 col-md-3">
+					    <div class="thumbnail">
+					      	<img src="..." alt="...">
+					      	<div class="caption">
+					        	<h3>Thumbnail label</h3>
+					        	<p>...</p>
+					        	<p><a href="#">Read more</a></p>
+					      	</div>
+					    </div>
+					  	</div>
+					</div>
 
 					<div>
 					<table class="table table-striped table-responsive">
@@ -60,7 +75,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+
 	</div>
 </div>
 </body>

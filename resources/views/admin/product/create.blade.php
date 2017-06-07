@@ -10,7 +10,7 @@
 <body>
 	<div class="form-container">
 		<h2>Create Product</h2>
-		{!! Form::open(['class'=>'form-horizontal','route' => 'product.store','method'=>'POST']) !!}
+		{!! Form::open(['class'=>'form-horizontal','route' => 'product.store','method'=>'POST', 'files' => true]) !!}
 		@include('admin.product._form',['submitButtonText' => 'Create'])
 		{!! Form::close() !!}
 	</div>

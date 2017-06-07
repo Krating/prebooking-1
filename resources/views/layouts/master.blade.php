@@ -117,8 +117,33 @@
                             <a class="list-group-item" href="{{ route('promotion.index') }}">Promotion</a>
                         </ul>
                     </div>
-                <li><a href="{{ route('booking.index') }}">Booking</a></li>
-                <li><a href="{{ route('payment.index') }}">Payment</a></li>
+
+                @php
+                    $status = "Processing";
+                    $bookings = DB::table('bookings')->where('status', $status)->get();
+                    $num_booking = count($bookings);
+                    $payments = DB::table('payments')->where('status', $status)->get();
+                    $num_payment = count($payments);
+                @endphp
+
+                <li><a href="{{ route('booking.index') }}">Booking 
+                @if($num_booking == '0')
+                @else
+                <span class="badge">
+                {{ $num_booking }}
+                </span>
+                @endif
+                </a></li>
+
+                <li><a href="{{ route('payment.index') }}">Payment 
+                @if($num_payment == '0')
+                @else
+                <span class="badge">
+                {{ $num_payment }}
+                </span>
+                @endif
+                </a></li>
+                
             </ul>
 
         </div>
