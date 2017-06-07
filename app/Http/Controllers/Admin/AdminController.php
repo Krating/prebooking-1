@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Booking;
+use App\Payment;
 
 class AdminController extends Controller
 {

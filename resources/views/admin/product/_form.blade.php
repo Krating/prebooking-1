@@ -46,6 +46,15 @@
 	</div>
 </div>
 
+<div class="form-group">
+	{!! Form::label('photo', 'Upload Image', ['class' => 'control-label col-md-4']) !!}
+	<div class="col-md-6">
+		<input type="file" name="photo">
+		{!! $errors->has('photo')?$errors->first('photo'):'' !!}
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	</div>
+</div>
+
 <div class="row">
 	<div class="col-md-1 col-md-offset-7">
 	<a href="{{ route('product.index') }}" class="btn btn-primary">Back</a>

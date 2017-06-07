@@ -31,7 +31,7 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('slip', 'Update Slip Image', ['class' => 'control-label col-md-4']) !!}
+	{!! Form::label('slip', 'Upload Slip Image', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-4">
 		<input type="file" name="slip">
 		{!! $errors->has('slip')?$errors->first('slip'):'' !!}
