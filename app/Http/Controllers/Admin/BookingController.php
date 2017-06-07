@@ -63,25 +63,13 @@ class BookingController extends Controller
         $booking->status = $status_new;
         $booking->save();
 
-        $number = Booking::where('id', $id)->value('number');
         $product_id = Booking::where('id', $id)->value('product_id');
         $promotion = Product::find($product_id)->promotion_id;
-        $promotion_number = Promotion::where('id', $promotion)->value('number');
-        $promotion_name = Promotion::where('id', $promotion)->value('promotion_name');
         $coupon_id = Booking::where('id', $id)->value('coupon_id');
         $discount = Promotion::where('id', $promotion)->value('discount');
-
         $user = Booking::where('id', $id)->value('user_id');
 
-        if($coupon_id === NULL){
-            if($promotion_number <= $number){
-                $coupon = new Coupon;
-                $coupon->user_id = $user;
-                $coupon->promotion_id = $promotion;
-                $coupon->coupon_name = $promotion_name;
-                $coupon->save();
-            }
-        }else{
+        if($coupon_id != NULL){
             $total_discount = ($total_price*$discount)/100;
             $total_net = $total_price-$total_discount;
             $booking['total_price'] = $total_net;

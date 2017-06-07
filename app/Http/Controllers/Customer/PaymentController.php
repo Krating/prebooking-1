@@ -39,6 +39,8 @@ class PaymentController extends Controller
         $input['slip'] = $slipname;
         $status = "Processing";
         $input['status'] = $status;
+        $booking_code = Booking::where('id', $request->booking_id)->value('booking_code');
+        $input['booking_code'] = $booking_code;
         Payment::create($input);
         return redirect()->route('myorder.index');
     }

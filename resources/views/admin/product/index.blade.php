@@ -20,8 +20,20 @@
 						{{ session('status') }}
 						</div>
 					@endif
+					
+						<div id="search">
+						    <form class="form-inline search-form" role="form" action="{{ route('search-product') }}" method="post">
+						    {{ csrf_field() }}
+						        <div class="form-group">
+						        	<input type="text" name="search_code" class="form-control" placeholder="Search here">
+						        </div>
+						        <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
+								
+								<a class="btn btn-success" href="{{ route('product.create') }}">New Product</a>
 
-					<a class="btn btn-success" href="{{ route('product.create') }}">New Product</a>
+						    </form>
+						</div>
+
 					<table class="table table-striped table-responsive">
 						<thead>
 							<th>#</th>

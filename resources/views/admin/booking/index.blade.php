@@ -14,11 +14,22 @@
 			<div class="panel-heading">
 				<h2>Booking</h2>
 			</div>
-			<div class="panel-body">
+			<div class-="panel-body">
+				
+				<div id="search">
+				    <form class="form-inline search-form" role="form" action="{{ route('search-booking') }}" method="post">
+				    {{ csrf_field() }}
+				        <div class="form-group">
+				        	<input type="text" name="search_code" class="form-control" placeholder="Search here">
+				        </div>
+				        <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
+				    </form>
+				</div>
+
 				<table class="table table-striped table-responsive">
 					<thead>
 						<th>#</th>
-						<th>Product Name</th>
+						<th>Booking ID</th>
 						<th>Status</th>
 						<th>Action</th>
 					</thead>
@@ -26,7 +37,7 @@
 						@foreach($bookings as $key=> $booking)
 						<tr>
 							<td>{{ ++$key }}</td>
-							<td>{{ $booking->product->product_name }}</td>
+							<td>{{ $booking->booking_code }}</td>
 							<td>{{ $booking->status }}</td>
 							<td>
 								<a class="btn btn-info" href="{{ route('booking.show', $booking->id) }}">Show</a>

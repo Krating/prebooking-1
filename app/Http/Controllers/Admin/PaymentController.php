@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Product;
 use App\Booking;
+use App\Promotion;
 use App\Payment;
+use App\Coupon;
 use App\User;
 use Auth;
 use Mail;
@@ -26,27 +29,27 @@ class PaymentController extends Controller
         return view('payment.show', compact('payment'));
     }
 
-    public function approve($id, $idx){
+    public function approve($id, $booking){
 
-        $order = Booking::find($idx);      
+        $order = Booking::find($booking);      
         $amount = Payment::where('id', $id)->value('amount');
-        $deposit = Booking::where('id', $idx)->value('deposit');
+        $deposit = Booking::where('id', $booking)->value('deposit');
         $deposit_new = $deposit+$amount;
         $order->deposit = $deposit_new;
 
-        $debt = Booking::where('id', $idx)->value('debt');
-        $total_price = Booking::where('id', $idx)->value('total_price');
+        $debt = Booking::where('id', $booking)->value('debt');
+        $total_price = Booking::where('id', $booking)->value('total_price');
         $debt_new = $total_price-$deposit_new;
         $order->debt = $debt_new;
         $order->save();
 
-        $debt = Booking::where('id', $idx)->value('debt');
+        $debt = Booking::where('id', $booking)->value('debt');
         if($debt <= "0"){
-	        $status_old = Booking::where('id', $idx)->value('status');
+	        $status_old = Booking::where('id', $booking)->value('status');
 	        $status_new = "Fully Paid";
 	        $order->status = $status_new;
         } else {
-        	$status_old = Booking::where('id', $idx)->value('status');
+        	$status_old = Booking::where('id', $booking)->value('status');
         	$status_new = "Deposit";
         	$order->status = $status_new;
 		}
@@ -57,9 +60,28 @@ class PaymentController extends Controller
         $status_new = "Approved";
         $payment->status = $status_new;
         $payment->save();
+
+        $user = Booking::where('id', $booking)->value('user_id');
+        $coupon_id = Booking::where('id', $booking)->value('coupon_id');
+        $number = Booking::where('id', $booking)->value('number');
+        $product_id = Booking::where('id', $booking)->value('product_id');
+        $promotion = Product::find($product_id)->promotion_id;
+        $promotion_number = Promotion::where('id', $promotion)->value('number');
+        $promotion_name = Promotion::where('id', $promotion)->value('promotion_name');
+        $status = Booking::where('id', $booking)->value('status');
+        if($coupon_id === NULL){
+            if($promotion_number <= $number){
+                if($status === "Fully Paid"){
+                    $coupon = new Coupon;
+                    $coupon->user_id = $user;
+                    $coupon->promotion_id = $promotion;
+                    $coupon->coupon_name = $promotion_name;
+                    $coupon->save();
+                }
+            }
+        }
         
-        $booking = Booking::find($idx);
-        $user = Booking::where('id', $idx)->value('user_id');
+        $booking = Booking::find($booking);
         $this->bookingDetail($booking, $user);
 
         return redirect()->route('payment.index');  

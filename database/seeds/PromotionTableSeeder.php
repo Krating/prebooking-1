@@ -23,7 +23,7 @@ class PromotionTableSeeder extends Seeder
     		'promotion_name' => '10% off',
     		'number' => '1000',
             'discount' => '10',
-    		'description' => 'Booking 100 ea, get 10% discount coupon for next booking']
+    		'description' => 'Booking 1000 ea, get 10% discount coupon for next booking']
     	];
     }
 }
