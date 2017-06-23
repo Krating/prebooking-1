@@ -10,7 +10,7 @@
 <body>
 	<div class="form-container">
 		<h2>Edit Product</h2>
-		{!! Form::model($product, ['class'=>'form-horizontal', 'route' => ['product.update', $product->id], 'method'=>'PATCH']) !!}
+		{!! Form::model($product, ['class'=>'form-horizontal', 'files' => true, 'route' => ['product.update', $product->id], 'method'=>'PATCH']) !!}
 		@include('admin.product._form',['submitButtonText' => 'Edit'])
 		{!! Form::close() !!}
 	</div>

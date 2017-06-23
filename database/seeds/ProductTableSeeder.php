@@ -24,7 +24,7 @@ class ProductTableSeeder extends Seeder
     		'product_name' => 'Steel Rod',
     		'product_price' => '40',
             'product_number' => '10000',
-    		'photo' => '1494576711-000.jpg',
+    		'photo' => '1496919329-tmn.jpg',
             'description' => 'length 6 meters',
     		'status' => 'close'
             ],
@@ -35,7 +35,7 @@ class ProductTableSeeder extends Seeder
     		'product_name' => 'Steel Plate',
     		'product_price' => '100',
     		'product_number' => '20000',
-            'photo' => '1494576711-000.jpg',
+            'photo' => '1496919329-tmn.jpg',
             'description' => '',
     		'status' => 'close'
             ],
@@ -46,7 +46,7 @@ class ProductTableSeeder extends Seeder
     		'product_name' => 'Cement Pole',
     		'product_price' => '100',
     		'product_number' => '5000',
-            'photo' => '1494576711-000.jpg',
+            'photo' => '1496919329-tmn.jpg',
     		'description' => '5 inchs',
             'status' => 'open'
             ]

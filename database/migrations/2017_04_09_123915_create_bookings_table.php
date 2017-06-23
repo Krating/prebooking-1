@@ -28,7 +28,7 @@ class CreateBookingsTable extends Migration
             $table->double('deposit');
             $table->double('debt');
             $table->date('payment_date')->nullable();
-            $table->date('transmission_date');
+            $table->date('transmission_date')->nullable();
             $table->string('status');
             $table->timestamps();
         });

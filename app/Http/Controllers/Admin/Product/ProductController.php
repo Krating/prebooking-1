@@ -8,8 +8,6 @@ use App\Product;
 use App\Category;
 use App\Promotion;
 use Intervention\Image\ImageManager;
-use Illuminate\Support\Facades\Input as input;
-use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -43,7 +41,7 @@ class ProductController extends Controller
         $img = $request->file('photo');
         $photoname = time().'-'.$img->getClientOriginalName();
         $path = public_path('photos');
-        $photo->make($img)->resize(170, 170)->save($path.'/'.$photoname);
+        $photo->make($img)->resize(240, 200)->save($path.'/'.$photoname);
         $input['photo'] = $photoname;
         $product = new Product($input);
         $status = "close";
@@ -70,17 +68,27 @@ class ProductController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, ImageManager $photo)
     {
         $this->validate($request, [
             'category_id' => 'required',
             'product_name' => 'required',
             'product_price' => 'required|numeric',
             'product_number' => 'required|numeric',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
         $product = Product::find($id);
-        $product->update($request->all());
+
+        $input = $request->all();
+        $img = $request->file('photo');
+        $photoname = time().'-'.$img->getClientOriginalName();
+        $path = public_path('photos');
+        $photo->make($img)->resize(240, 200)->save($path.'/'.$photoname);
+        $input['photo'] = $photoname;
+
+        $product->update($input);
+
         return redirect()->route('product.index')->with('status', $product->product_name.' has been edited');
     }
 
