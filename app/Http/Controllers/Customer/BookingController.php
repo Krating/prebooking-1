@@ -40,7 +40,6 @@ class BookingController extends Controller
         $this->validate($request,[
             'product_id' => 'required',
             'number' => 'required|numeric',
-            'transmission_date' => 'required',
         ]);
 
         $num = Product::find($request->product_id);

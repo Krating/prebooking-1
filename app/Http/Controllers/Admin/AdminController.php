@@ -8,12 +8,54 @@ use Auth;
 use App\User;
 use App\Booking;
 use App\Payment;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
 	public function index()
 	{
-		return view('admin.index');
+		$today = Carbon::today()->toDateTimeString();
+        $dt = explode(' ' ,$today);
+        $dt0 = $dt[0];
+        $datetime = explode('-' ,$dt0);
+        $year = $datetime[0];
+        $month = $datetime[1];
+        $day = $datetime[2];
+
+		$today = Booking::whereYear('created_at', $year)->whereMonth('created_at', $month)->whereDay('created_at', $day)->get();
+		$booking_today = count($today);
+		for($i=0; $i<$booking_today; $i++){
+			$price = Booking::whereYear('created_at', $year)->whereMonth('created_at', $month)->whereDay('created_at', $day)->value('total_price');
+			$p[$i] = $price;
+		}
+
+		$total = array_sum($p);
+
+		$length = 12;
+		for($i=0; $i<$length; $i++){
+			$year_now = Booking::whereYear('created_at', $year)->whereMonth('created_at', $i+1)->get();
+			$num_now = count($year_now);
+			if($i < $month){
+				$now[$i] = $num_now;
+			}else{
+				$now[$i] = null;
+			}
+		}
+
+		for($i=0; $i<$length; $i++){
+			$year_last = Booking::whereYear('created_at', $year-1)->whereMonth('created_at', $i+1)->get();
+			$lastyear = Booking::whereYear('created_at', $year-1)->get();
+			$num_lastyear = count($lastyear);
+			if($num_lastyear != 0){
+				$num_last = count($year_last);
+				$last[$i] = $num_last;
+			}else{
+				$last[$i] = null;
+			}
+			
+		}
+
+		return view('admin.index', ['now' => $now, 'last' => $last, 'booking_today' => $booking_today, 'total' => $total]);
 	}
 
 	public function userManagement()

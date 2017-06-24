@@ -53,7 +53,8 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-        	'payment_date' => 'required',
+            'payment_date' => 'required',
+        	'transmission_date' => 'required',
         ]);
 
         $booking = Booking::find($id);

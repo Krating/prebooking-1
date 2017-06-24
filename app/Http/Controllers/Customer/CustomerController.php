@@ -28,7 +28,7 @@ class CustomerController extends Controller
     public function index()
     {
         $status = "open";
-        $products = Product::where('status', $status)->get();
+        $products = Product::where('status', $status)->Paginate(8);
         return view('customer.index', ['products' => $products]);
     }
 

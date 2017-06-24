@@ -30,10 +30,6 @@
                             {{ $product->product_price }}
                         </div>
                         <div class="form-group">
-                            <strong>Number:</strong>
-                            {{ $product->product_number }}
-                        </div>
-                        <div class="form-group">
                             <strong>Promotion:</strong>
                             @if($product->promotion == NULL)
                             -
@@ -44,6 +40,9 @@
                         <div class="form-group">
                             <strong>Description:</strong>
                             {{ $product->description }}
+                        </div>
+                        <div class="form-group">
+                            <img src="/photos/{{ $product->photo }}">
                         </div>
 
                         <div class="pull-right">

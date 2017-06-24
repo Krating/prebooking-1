@@ -12,8 +12,6 @@ use App\Category;
 use App\Booking;
 use App\Payment;
 use Intervention\Image\ImageManager;
-use Illuminate\Support\Facades\Input as input;
-use Illuminate\Support\Facades\Redirect;
 
 class PaymentController extends Controller
 {

@@ -49,6 +49,14 @@
 	</div>
 </div>
 
+<div class="form-group">
+	{!! Form::label('transmission_date', 'Transmission Date', ['class' => 'control-label col-md-4']) !!}
+	<div class="col-md-4">
+		{!! Form::date('transmission_date', null, ['class' => 'form-control']) !!}
+		{!! $errors->has('transmission_date')?$errors->first('transmission_date'):'' !!}
+	</div>
+</div>
+
 <div class="row">
 <div class="col-md-2 col-md-offset-4">
 	<a href="{{ route('booking.index') }}" class="btn btn-primary form-control">Cancel</a>
