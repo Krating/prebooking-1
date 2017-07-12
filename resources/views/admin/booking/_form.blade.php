@@ -35,13 +35,6 @@
 </div>
 
 <div class="form-group">
-	{!! Form::label('transmission_date', 'Transmission Date', ['class' => 'control-label col-md-4']) !!}
-	<div class="col-md-4">
-		{{$booking->transmission_date}}
-	</div>
-</div>
-
-<div class="form-group">
 	{!! Form::label('payment_date', 'Payment Date', ['class' => 'control-label col-md-4']) !!}
 	<div class="col-md-4">
 		{!! Form::date('payment_date', null, ['class' => 'form-control']) !!}

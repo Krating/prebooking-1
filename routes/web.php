@@ -65,6 +65,8 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::post('search_code', 'SearchController@search')->name('search-autocomplete');
 	Route::post('myorder/search_code', 'SearchController@searchMyorder')->name('search-myorder');
 
+	// Route::get('/add-to-cart/{id}', 'Customer\BookingController@getAddToCart')->name('booking.addtocart');
+
 	// Route::get('mail', function(){
 	// 	return view('email.mail');
 	// });

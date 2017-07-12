@@ -30,7 +30,7 @@
 				    </div>
 					
 					<div class="row box">
-					@foreach($products as $key=> $product)
+					@foreach($products as $product)
 					 	<div class="col-sm-6 col-md-3">
 					    <div class="thumbnail">
 					      	<img src="/photos/{{ $product->photo }}">
@@ -46,7 +46,7 @@
 					  	</div>
 					@endforeach
 					</div>
-					
+
 					<div class="row paginate">
 					{{$products->links()}}
 					</div>
