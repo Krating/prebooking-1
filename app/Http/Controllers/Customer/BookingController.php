@@ -25,6 +25,11 @@ class BookingController extends Controller
         return view('customer.myorder', ['bookings' => $bookings]);
     }
 
+    // public function getAddToCart(Request $request, $id)
+    // {
+    //     $product = Product::find($id);
+        
+    // }
 
     public function create($id)
     {

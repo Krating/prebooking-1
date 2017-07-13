@@ -48,8 +48,73 @@ class ProductTableSeeder extends Seeder
     		'product_number' => '5000',
             'photo' => '1496919329-tmn.jpg',
     		'description' => '5 inchs',
+            'status' => 'close'
+            ],
+            [
+            'id' => 41,
+            'category_id' => 21,
+            'promotion_id' => null,
+            'product_name' => 'Test01',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
             'status' => 'open'
-            ]
+            ],
+            [
+            'id' => 51,
+            'category_id' => 21,
+            'promotion_id' => null,
+            'product_name' => 'Test01',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 61,
+            'category_id' => 21,
+            'promotion_id' => null,
+            'product_name' => 'Test02',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 71,
+            'category_id' => 21,
+            'promotion_id' => null,
+            'product_name' => 'Test03',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],[
+            'id' => 81,
+            'category_id' => 21,
+            'promotion_id' => null,
+            'product_name' => 'Test04',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 91,
+            'category_id' => 21,
+            'promotion_id' => null,
+            'product_name' => 'Test05',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
     	];
     }
 }

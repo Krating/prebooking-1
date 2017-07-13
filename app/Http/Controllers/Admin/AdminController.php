@@ -24,11 +24,11 @@ class AdminController extends Controller
 
 		$today = Booking::whereYear('created_at', $year)->whereMonth('created_at', $month)->whereDay('created_at', $day)->get();
 		$booking_today = count($today);
+		$p[] = '';
 		for($i=0; $i<$booking_today; $i++){
-			$price = Booking::whereYear('created_at', $year)->whereMonth('created_at', $month)->whereDay('created_at', $day)->value('total_price');
+			$price = $today[$i]->total_price;
 			$p[$i] = $price;
 		}
-
 		$total = array_sum($p);
 
 		$length = 12;
