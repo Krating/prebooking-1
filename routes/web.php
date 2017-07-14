@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::get('payment/create/{id}', 'Customer\PaymentController@create')->name('customer.payment.create');
 	Route::post('payment/store', 'Customer\PaymentController@store')->name('customer.payment.store');
 
-	Route::post('search_code', 'SearchController@search')->name('search-autocomplete');
+	Route::post('products/search_code', 'SearchController@search')->name('search-autocomplete');
 	Route::post('myorder/search_code', 'SearchController@searchMyorder')->name('search-myorder');
 
 	// Route::get('/add-to-cart/{id}', 'Customer\BookingController@getAddToCart')->name('booking.addtocart');
