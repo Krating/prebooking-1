@@ -15,7 +15,7 @@ class SearchController extends Controller
     {
         $search = $request->search_code;
         $status = "open";
-        $products = Product::where('product_name', 'like', '%'.$search.'%')->where('status' , $status)->get();
+        $products = Product::where('product_name', 'like', '%'.$search.'%')->where('status' , $status)->Paginate(8);
         return view('customer.index', ['products' => $products]);
     }
 
