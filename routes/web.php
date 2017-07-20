@@ -65,10 +65,11 @@ Route::group(['middleware' => ['auth']], function(){
 	Route::post('products/search_code', 'SearchController@search')->name('search-autocomplete');
 	Route::post('myorder/search_code', 'SearchController@searchMyorder')->name('search-myorder');
 
-	// Route::get('/add-to-cart/{id}', 'Customer\BookingController@getAddToCart')->name('booking.addtocart');
+	Route::get('/add-to-cart/{id}', 'Customer\BookingController@addToCart')->name('booking.addtocart');
+	Route::get('/remove/{id}', 'Customer\BookingController@removeItem')->name('booking.removeitem');
+	Route::get('/shoppingcart', 'Customer\BookingController@shoppingcart')->name('booking.shoppingcart');
 
 	// Route::get('mail', function(){
 	// 	return view('email.mail');
 	// });
-
 });

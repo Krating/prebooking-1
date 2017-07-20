@@ -15,6 +15,8 @@ use Mail;
 use App\Mail\BookingDetail;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
+use App\Cart;
+use Session;
 
 class BookingController extends Controller
 {
@@ -25,11 +27,36 @@ class BookingController extends Controller
         return view('customer.myorder', ['bookings' => $bookings]);
     }
 
-    // public function getAddToCart(Request $request, $id)
-    // {
-    //     $product = Product::find($id);
-        
-    // }
+    public function addToCart(Request $request, $id)
+    {
+        $product = Product::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+        $request->session()->put('cart', $cart);
+        return redirect()->route('products.index');
+    }
+
+    public function removeItem(Request $request, $id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        Session::put('cart', $cart);
+        return redirect()->route('booking.shoppingcart');
+    }
+
+    public function shoppingcart()
+    {
+        if(!Session::has('cart')){
+            return view('customer.cart'); 
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $items = $cart->items;
+        $num_items = count($items);
+        return view('customer.cart', ['products'=>$cart->items, 'totalPrice'=>$cart->totalPrice, 'num_items'=>$num_items]);
+    }
 
     public function create($id)
     {

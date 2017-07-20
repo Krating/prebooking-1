@@ -39,7 +39,7 @@
 					        	<p>
 					        	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit
 					        	</p>
-					        	<a href="{{ route('products.show',$product->id) }}">Read more</a>
+					        	<a href="{{ route('products.show',$product->id) }}">more >></a>
 						        <p class="pull-right">{{ $product->product_price }} THB.</p>
 					      	</div>
 					    </div>

@@ -47,7 +47,10 @@
 
                         <div class="pull-right">
                             <a class="btn btn-primary" href="{{ route('products.index') }}">Back</a>
-                            <a class="btn btn-success" onclick="location.reload()" href="{{ route('myorder.create', $product->id)}}">Book</a>
+                            <a class="btn btn-success" href="{{ route('booking.addtocart',$product->id) }}">
+                                <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+                            </a>
+                            <!-- <a class="btn btn-success" onclick="location.reload()" href="{{ route('myorder.create', $product->id)}}">Book</a> -->
                         </div>
                     </div>
                 </div>

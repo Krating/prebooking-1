@@ -170,6 +170,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -233,6 +234,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Str' => 'Illuminate\Support\Str',
         'Carbon' => 'Carbon\Carbon',
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
     ],
 
 ];
