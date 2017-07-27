@@ -22,10 +22,10 @@ class CategoryTableSeeder extends Seeder
     		'id' => 1,
     		'category_name' => 'Steel'],
     		[
-    		'id' => 21,
+    		'id' => 2,
     		'category_name' => 'Cement'],
     		[
-    		'id' => 31,
+    		'id' => 3,
     		'category_name' => 'Wood']
     	];
     }

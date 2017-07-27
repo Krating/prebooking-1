@@ -11,7 +11,7 @@
         <div class="row">
         <div class="class col-md-11">
             <div class="panel-heading">
-                <h2>Blacklists</h2>
+                <h2>Blacklist</h2>
             </div>
             <div class="panel-body">
 
@@ -24,16 +24,16 @@
                 <table class="table table-striped table-responsive">
                     <thead>
                         <th>#</th>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
+                        <th>Username</th>
+                        <th>E-mail Address</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
                         @foreach($admins as $key=> $admin)
                         <tr>
                             <td>{{ ++$key }}</td>
-                            <td>{{ $admin->first_name }}</td>
-                            <td>{{ $admin->last_name }}</td>
+                            <td>{{ $admin->username }}</td>
+                            <td>{{ $admin->email }}</td>
                             <td>
                                 {!! Form::open(['method'=>'DELETE', 'route'=>['admin.destroy',$admin->id]]) !!}
                                 {!! Form::submit('Unblock', ['class' => 'btn btn-danger']) !!}

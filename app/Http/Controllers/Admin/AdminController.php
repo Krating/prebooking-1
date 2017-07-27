@@ -88,21 +88,11 @@ class AdminController extends Controller
 		$this->validate($request,[
     		'username' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'gender' => 'required',
-            'birthday' => 'required|date',
-            'address' => 'required|max:255',
         ]);
 
         $admin = new User;
-	    $admin->first_name = $request->first_name;
-	    $admin->last_name = $request->last_name;
 	    $admin->username = $request->username;
 	    $admin->email = $request->email;
-	    $admin->gender = $request->gender;
-	    $admin->birthday = $request->birthday;
-	    $admin->address = $request->address;
 	    $admin->role_id = 1;
 	    $admin->password = bcrypt('1234');
 	    $admin->save();

@@ -11,26 +11,26 @@
 		<div class="row">
 		<div class="col-md-11">
 			<div class="panel-heading">
-				<h2>Customer List</h2>
+				<h2>Customer</h2>
 			</div>
 			<div class="panel-body">
 
 				<table class="table table-striped table-responsive">
 					<thead>
 						<th>#</th>
-						<th>Firstname</th>
-						<th>Lastname</th>
-						<th>Action</th>
+						<th>Username</th>
+						<th>E-mail Address</th>
+						<!-- <th>Action</th> -->
 					</thead>
 					<tbody>
 						@foreach($customers as $key=> $customer)
 						<tr>
 							<td>{{ ++$key }}</td>
-							<td>{{ $customer->first_name }}</td>
-							<td>{{ $customer->last_name }}</td>
-							<td>
+							<td>{{ $customer->username }}</td>
+							<td>{{ $customer->email }}</td>
+							<!-- <td>
 								<a class="btn btn-info" href="{{ route('admin.show',$customer->id) }}">Show</a>
-							</td>
+							</td> -->
 						</tr>
 						@endforeach
 					</tbody>

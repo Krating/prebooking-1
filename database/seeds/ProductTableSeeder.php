@@ -29,7 +29,7 @@ class ProductTableSeeder extends Seeder
     		'status' => 'close'
             ],
     		[
-    		'id' => 21,
+    		'id' => 2,
             'category_id' => 1,
     		'promotion_id' => null,
     		'product_name' => 'Steel Plate',
@@ -40,8 +40,8 @@ class ProductTableSeeder extends Seeder
     		'status' => 'close'
             ],
     		[
-    		'id' => 31,
-            'category_id' => 21,
+    		'id' => 3,
+            'category_id' => 2,
     		'promotion_id' => 1,
     		'product_name' => 'Cement Pole',
     		'product_price' => '100',
@@ -51,8 +51,19 @@ class ProductTableSeeder extends Seeder
             'status' => 'close'
             ],
             [
-            'id' => 41,
-            'category_id' => 21,
+            'id' => 4,
+            'category_id' => 2,
+            'promotion_id' => null,
+            'product_name' => 'Test',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 5,
+            'category_id' => 2,
             'promotion_id' => null,
             'product_name' => 'Test01',
             'product_price' => '100',
@@ -62,19 +73,8 @@ class ProductTableSeeder extends Seeder
             'status' => 'open'
             ],
             [
-            'id' => 51,
-            'category_id' => 21,
-            'promotion_id' => null,
-            'product_name' => 'Test01',
-            'product_price' => '100',
-            'product_number' => '20000',
-            'photo' => '1496919329-tmn.jpg',
-            'description' => '',
-            'status' => 'open'
-            ],
-            [
-            'id' => 61,
-            'category_id' => 21,
+            'id' => 6,
+            'category_id' => 2,
             'promotion_id' => null,
             'product_name' => 'Test02',
             'product_price' => '100',
@@ -84,8 +84,8 @@ class ProductTableSeeder extends Seeder
             'status' => 'open'
             ],
             [
-            'id' => 71,
-            'category_id' => 21,
+            'id' => 7,
+            'category_id' => 2,
             'promotion_id' => null,
             'product_name' => 'Test03',
             'product_price' => '100',
@@ -93,9 +93,10 @@ class ProductTableSeeder extends Seeder
             'photo' => '1496919329-tmn.jpg',
             'description' => '',
             'status' => 'open'
-            ],[
-            'id' => 81,
-            'category_id' => 21,
+            ],
+            [
+            'id' => 8,
+            'category_id' => 2,
             'promotion_id' => null,
             'product_name' => 'Test04',
             'product_price' => '100',
@@ -105,10 +106,65 @@ class ProductTableSeeder extends Seeder
             'status' => 'open'
             ],
             [
-            'id' => 91,
-            'category_id' => 21,
+            'id' => 9,
+            'category_id' => 2,
             'promotion_id' => null,
             'product_name' => 'Test05',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 10,
+            'category_id' => 2,
+            'promotion_id' => null,
+            'product_name' => 'Test06',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 11,
+            'category_id' => 3,
+            'promotion_id' => null,
+            'product_name' => 'Test07',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 12,
+            'category_id' => 3,
+            'promotion_id' => null,
+            'product_name' => 'Test08',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 14,
+            'category_id' => 3,
+            'promotion_id' => null,
+            'product_name' => 'Test09',
+            'product_price' => '100',
+            'product_number' => '20000',
+            'photo' => '1496919329-tmn.jpg',
+            'description' => '',
+            'status' => 'open'
+            ],
+            [
+            'id' => 15,
+            'category_id' => 3,
+            'promotion_id' => null,
+            'product_name' => 'Test10',
             'product_price' => '100',
             'product_number' => '20000',
             'photo' => '1496919329-tmn.jpg',
