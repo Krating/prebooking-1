@@ -8,6 +8,8 @@ use Auth;
 use App\Booking;
 use App\Product;
 use App\Coupon;
+use App\Cart;
+use Session;
 
 class CustomerController extends Controller
 {
@@ -29,7 +31,16 @@ class CustomerController extends Controller
     {
         $status = "open";
         $products = Product::where('status', $status)->Paginate(8);
-        return view('customer.index', ['products' => $products]);
+
+        if(!Session::has('cart')){
+            return view('customer.index', ['products' => $products]); 
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $items = $cart->items;
+        $num_items = count($items);
+
+        return view('customer.index', ['products' => $products, 'items'=>$cart->items, 'totalPrice'=>$cart->totalPrice, 'num_items'=>$num_items]);
     }
 
     public function create()

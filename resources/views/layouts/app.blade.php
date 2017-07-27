@@ -24,6 +24,13 @@
     </script>
 </head>
 <body>
+        @if(Session::has('cart'))
+        @php
+            $items = Session::get('cart')->items;
+            $totalPrice = Session::get('cart')->totalPrice;
+            $num_items = count($items);
+        @endphp
+        @endif
     <div id="app">
         <nav class="navbar navbar-custom navbar-static-top">
             <div class="container">
@@ -57,16 +64,15 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li>
-                                <a href="{{ route('booking.shoppingcart') }}">
-                                    <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> Shopping Cart
-                                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                                <a href="#" data-toggle="modal" data-target="#myModal01">
+                                    <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true" ></i> Shopping Cart
+                                    <span class="badge">{{ Session::has('cart') ? $num_items != 0 ? $num_items : '' : '' }}</span>
                                 </a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         @if(Auth::user()->role_id === 1)
@@ -97,6 +103,71 @@
             </div>
         </nav>
 
+        <!-- Modal01 -->
+            <div class="modal fade" id="myModal01" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal01 content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                @if(Session::has('cart'))
+                                <div class="cart-container">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Qty</th>
+                                                <th>Price</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($items as $item)
+                                            <tr>
+                                                <td>{{ $item['item']['product_name'] }}</td>
+                                                <td>{{ $item['qty'] }}</td>
+                                                <td>{{ $item['price'] }}</td>
+                                                <td>
+                                                    <a class="btn btn-sm btn-danger" href="{{ route('booking.removeitem',['id'=>$item['item']['id']]) }}">
+                                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                        <table class="table">
+                                            <tr>
+                                                <td>Items on Cart:</td>
+                                                <td>{{ $num_items }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Price:</td>
+                                                <td>{{ $totalPrice }}</td>
+                                            </tr>
+                                        </table>
+                                </div>
+                                @else
+                                <h2>No Item in Cart!</h2>
+                                @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
         @yield('content')
     </div>
 

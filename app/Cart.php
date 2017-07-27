@@ -19,7 +19,7 @@ class Cart
     	}
     }
 
-    public function add($item, $id)
+    public function add($item, $id, $qty)
     {
     	$storedItem = ['qty' => 0, 'price' => $item->product_price, 'item' => $item];
     	if($this->items){
@@ -27,16 +27,16 @@ class Cart
     			$storedItem = $this->items[$id];
     		}
     	}
-    	$storedItem['qty']++;
+    	$storedItem['qty'] += $qty;
     	$storedItem['price'] = $item->product_price*$storedItem['qty'];
     	$this->items[$id] = $storedItem;
     	$this->totalQty++;
-    	$this->totalPrice += $item->product_price;
+        $new_total = $qty*$item->product_price;
+    	$this->totalPrice += $new_total;
     }
 
     public function removeItem($id)
     {
-        $this->totalQty -= $this->items[$id]['qty'];
         $this->totalPrice -= $this->items[$id]['price'];
         unset($this->items[$id]);
     }

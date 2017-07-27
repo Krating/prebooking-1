@@ -29,10 +29,11 @@ class BookingController extends Controller
 
     public function addToCart(Request $request, $id)
     {
+        $qty = $request->qty;
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($product, $product->id);
+        $cart->add($product, $product->id, $qty);
         $request->session()->put('cart', $cart);
         return redirect()->route('products.index');
     }
@@ -40,22 +41,8 @@ class BookingController extends Controller
     public function removeItem(Request $request, $id)
     {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->removeItem($id);
-        Session::put('cart', $cart);
-        return redirect()->route('booking.shoppingcart');
-    }
-
-    public function shoppingcart()
-    {
-        if(!Session::has('cart')){
-            return view('customer.cart'); 
-        }
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
-        $items = $cart->items;
-        $num_items = count($items);
-        return view('customer.cart', ['products'=>$cart->items, 'totalPrice'=>$cart->totalPrice, 'num_items'=>$num_items]);
+        $oldCart->removeItem($id);
+        return redirect()->route('products.index');
     }
 
     public function create($id)
